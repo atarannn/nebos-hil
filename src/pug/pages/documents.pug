@@ -1,0 +1,73 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Документи'
+    var id_page = 'id-page-documents'
+    var class_page = 'class-page-documents'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Документи',
+        link: pagesLink[0].documents
+      }
+    ]
+    var firstTitle = 'ДОЗВІЛ на будування'
+    var secondTitle = 'ПРОєКТНІ ДЕКЛАРАЦІЇ'
+    var firstDocuments = [
+      {text: 'Лiцензiя Г. П. Командор ( повiдомлення, перелiк робiт, Витяг iз сайту ДАБI )'},
+      {text: 'Лiцензiя Г. П. Командор ( повiдомлення, перелiк робiт)'},
+      {text: 'Лiцензiя Г. П. Командор ( повiдомлення, перелiк робiт, Витяг iз сайту ДАБI )'}
+    ]
+    var secondDocuments = [
+      {text: 'Лiцензiя Г. П. Командор ( повiдомлення, перелiк робiт, Витяг iз сайту ДАБI )'},
+      {text: 'Лiцензiя Г. П. Командор'}
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/documents.js')
+block content
+  #documents
+    .page-content
+      include ../includes/breadcrumbs.pug
+    .content-wrapper
+      .docs-wrapper
+        .docs-left-wrapper
+          .docs__title= firstTitle
+          ul.docs
+            each fd in firstDocuments
+              li.doc-wrapper
+                a(href='#').doc= fd.text
+                svg.btn-circle(viewBox="0 0 67 67" xmlns="http://www.w3.org/2000/svg")
+                  circle.circle-back(cx="33.5" cy="33.5" r="32.5")
+                  circle.circle(cx="33.5" cy="33.5" r="32.5")
+                  path(d="M33.5 24.4V41.3M33.5 41.3L27 34.6424M33.5 41.3L40 34.6424M33.5 41.3H27H40" stroke="black")
+
+
+        .docs-right-wrapper
+          .docs__title= secondTitle
+          ul.docs
+            each sd in secondDocuments
+              li.doc-wrapper
+                a(href='#').doc= sd.text
+                svg.btn-circle(viewBox="0 0 67 67" xmlns="http://www.w3.org/2000/svg")
+                  circle.circle-back(cx="33.5" cy="33.5" r="32.5")
+                  circle.circle(cx="33.5" cy="33.5" r="32.5")
+                  path(d="M33.5 24.4V41.3M33.5 41.3L27 34.6424M33.5 41.3L40 34.6424M33.5 41.3H27H40" stroke="black")
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

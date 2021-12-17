@@ -1,0 +1,76 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Паркінг'
+    var id_page = 'id-page-parking'
+    var class_page = 'class-page-parking'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Паркінг',
+        link: pagesLink[0].parking
+      }
+    ]
+    var slider = [
+      {img: 'parking/4.png', text: 'цифрові камери спостереження'},
+      {img: 'parking/5.png', text: 'датчики диму'},
+      {img: 'parking/6.png', text: 'система пожежогасіння'}
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/purchase_terms.js')
+block content
+  #parking
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      +img('parking/1.png').main-page-img
+
+      .page-blocks
+        .top-block__wrapper
+          .half-block.half-right-block
+            .page-blocks__big-text Якщо ви вже визначилися з бажаним поверхом та плануванням майбутної квартири, саме час дізнатися про умови  придбання житла вашої мрії
+          .row-block.top-padding-blocks-2
+            .half-block.half-left-block
+              .page-blocks__text У проекті ЖК NEBOS'HILL заплановано дворівневий підземний паркінг на 244 паркомісця, половина з яких має можливість заряджання електромобілів
+            +img('parking/2.png').right-block-img
+
+        .blocks-top-shift
+          .half-big-block.half-left-block
+            .page-blocks__title При покупці кожен покупець має можливість вибору
+          .half-block.half-right-block.top-padding-blocks-2
+            .page-blocks__text Обирайте одне з двох типів місць для паркування залежно від своїх потреб
+          .parking-block-img__wrapper
+            .parking-block-img(style="background-image: url('./assets/images/parking/3.png')")
+
+        .blocks-top-shift
+          .top-block-row.blocks-left-shift
+            .page-blocks__big-title DM GROUP — велика родина однодумців. Кожен день ми намагаємось бути ще кращими для вас
+
+          .swiper-container.top-padding-blocks.slider-block__wrapper
+            .swiper-wrapper.slider-block
+              each crd in slider
+                .swiper-slide.slide.slider-block-info
+                  +img(crd.img).slider-block-card__img
+                  .page-blocks__text.slider-block-card__text= crd.text
+
+        .blocks-top-shift
+          .half-big-block.half-right-block.blocks-right-shift
+            .page-blocks__big-text Підземний паркінг – найкраще рішення для тих, хто цінує комфорт та піклується про свій автомобіль
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

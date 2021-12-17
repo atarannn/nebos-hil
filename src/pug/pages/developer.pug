@@ -1,0 +1,62 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Забудовник'
+    var id_page = 'id-page-developer'
+    var class_page = 'class-page-developer'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Забудовник',
+        link: pagesLink[0].developer
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+block content
+  #developer
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      .developer__wrapper
+        +img('developer/1.png').main-page-img
+
+        .page-blocks
+          .top-block__wrapper
+            .top-block-row.blocks-left-shift
+              .page-blocks__big-title DM GROUP — велика родина однодумців. Кожен день ми намагаємось бути ще кращими для вас
+              a(href="#").page-blocks__dev-logo
+                +img('developer/dev-logo.svg')
+            .half-block.top-padding-blocks.half-right-block
+              .page-blocks__text Нам важливо реалізовувати масштабні авторські архітектурні проєкти, але ще важливіше — емоції і стан людей, які усвідомлено довіряють нам у виборі нерухомості
+              a(href="#").page-blocks__links
+                span сайт забудовника
+                .link__arrow
+                  +svg('arrow-green')
+
+          .row-block.blocks-top-shift
+            .half-block.half-left-block
+              .page-blocks__text Ми працюємо тільки із якісними матеріалами, обираємо надійних підрядників та дотримуємось усіх стандартів надійного та безпечного будівництва
+            +img('developer/2.png').right-block-img
+
+          .half-big-block.half-right-block.blocks-top-shift.blocks-right-shift
+            .page-blocks__big-text серед наших пріоритетів - це благоустрій та інфраструктура для кожного нашого проєкту, щоб ви відчували комфорт
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

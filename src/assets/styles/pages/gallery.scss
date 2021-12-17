@@ -1,0 +1,61 @@
+#gallery {
+  .breadcrumbs {
+    margin-bottom: var(--breadcrumb-bottom-3);
+  }
+}
+
+.gallery-slide {
+  position: relative;
+  height: 90vh;
+}
+
+.gallery-slider__amount {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  overflow: hidden;
+  height: 160px;
+
+  .gallery-slider__current {
+    @include tenor-text(160px, $wc);
+    min-width: 2.3ch;
+    position: relative;
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  .slider__all{
+    position: absolute;
+    right: 0;
+    top: 15px;
+    @include tenor-text(40px, $wc);
+  }
+}
+
+.moving-arrow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  will-change: left, top;
+
+  z-index: 10;
+  opacity: 0;
+
+  .arrow-style {
+    transition: transform .3s ease-in-out;
+  }
+
+  //left:0;
+  //top: 0;
+  //will-change: transform;
+
+  &.left-side {
+    .arrow-style{
+      transition: transform .3s ease-in-out;
+      transform: rotate(-180deg);
+    }
+  }
+}

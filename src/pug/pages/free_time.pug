@@ -1,0 +1,70 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Дозвілля'
+    var id_page = 'id-page-free_time'
+    var class_page = 'class-page-free_time'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Дозвілля',
+        link: pagesLink[0].free_time
+      }
+    ]
+    var slider = [
+      {img: 'free_time/3.png', text: 'Закрита територія'},
+      {img: 'free_time/4.png', text: 'дитяча площадка'},
+      {img: 'free_time/5.png', text: 'тераси на даху'}
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/purchase_terms.js')
+block content
+  #free_time
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      +img('free_time/1.png').main-page-img
+
+      .page-blocks
+        .top-block__wrapper
+          .half-big-block.half-right-block.blocks-right-shift
+            .page-blocks__big-text У комплексі NEBOS'HILL виділено комфортне місце для ігрової зони, зробленої з висококласних, екологічно чистих матеріалів
+          .row-block.top-padding-blocks-2
+            .half-block.half-left-block
+              .page-blocks__text Діти зможуть проводити на вулиці достатню кількість часу, навчатися самостійності та розвиватися фізично. Сучасний підхід та турбота про мешканців – це можливість якісно проводити час із дітьми та дозволяти їм грати з однолітками у власному безпечному дворі
+            +img('free_time/2.png').right-block-img
+
+        .blocks-top-shift
+          .top-block-row.blocks-left-shift
+            .page-blocks__big-title Дитячий майданчик лише одна з безлічі локацій для розваг у житловому комплексі
+          .half-block.top-padding-blocks-2.half-right-block
+            .page-blocks__text Внутрішнє подвір'я потопає в зелені, а стильний ландшафтний дизайн забезпечує тінь і свіже повітря для комфортних прогулянок. Купуючи квартиру в ЖК NEBOS'HILL, Ви оціните всі переваги єдиної в місті такого масштабу прибудинкової території
+          .swiper-container.top-padding-blocks.slider-block__wrapper
+            .swiper-wrapper.slider-block
+              each crd in slider
+                .swiper-slide.slide.slider-block-info
+                  +img(crd.img).slider-block-card__img
+                  .page-blocks__text.slider-block-card__text= crd.text
+
+          .blocks-top-shift
+            .half-big-block.half-right-block.blocks-right-shift
+              .page-blocks__big-text Житловий ультрасучасний комплекс NEBOS'HILL абсолютно підходить тим, хто любить та цінує свій час та комфорт
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

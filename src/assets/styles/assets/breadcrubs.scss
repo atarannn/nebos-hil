@@ -1,0 +1,36 @@
+.breadcrumbs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 1;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .breadcrumbs-item {
+      margin-bottom: 20px;
+
+      & a{
+        @include open-thin-text(14px, $dgrc);
+        text-transform: lowercase;
+      }
+
+      span {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+
+    .breadcrumbs-item__active a{
+      @include open-thin-text(14px, $hc);
+      text-transform: lowercase;
+    }
+  }
+
+  &-title {
+    @include tenor-text(100px, $dgrc);
+  }
+}

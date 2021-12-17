@@ -1,0 +1,24 @@
+#developer {
+  .breadcrumbs {
+    margin-bottom: var(--breadcrumb-bottom-3);
+  }
+}
+
+.page-blocks__links{
+  width: max-content;
+  @include d-flex;
+  margin-top: 40px;
+  @include hover-underline($dgrc);
+  @include open-text(16px, $dgrc, 130%);
+
+  .link__arrow{
+    height: 13px;
+    width: 10px;
+    margin-left: 15px;
+  }
+}
+
+.top-block-row {
+  @include row-flex;
+  padding-right: var(--margin);
+}

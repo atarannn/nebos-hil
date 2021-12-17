@@ -1,0 +1,174 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Хід будівництва'
+    var id_page = 'id-page-construction_progress'
+    var class_page = 'class-page-construction_progress'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Хід будівництва',
+        link: pagesLink[0].construction_progress
+      }
+    ]
+    var cards = [{
+      img: 'const-progress/1.png',
+      text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
+      url: '#',
+      date: '02',
+      month:'жовтня 2021',
+    }, {
+      img: 'const-progress/2.png',
+      text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
+      url: '#',
+      date: '11',
+      month:'вересня 2021',
+    }, {
+      img: 'const-progress/3.png',
+      text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
+      url: '#',
+      date: '23',
+      month:'серпня 2021',
+    }, {
+      img: 'const-progress/4.png',
+      text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
+      url: '#',
+      date: '17',
+      month:'липня 2021',
+    }, {
+      img: 'const-progress/5.png',
+      text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
+      url: '#',
+      date: '09',
+      month:'червня 2021',
+    }, {
+      img: 'const-progress/6.png',
+      text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
+      url: '#',
+      date: '28',
+      month:'травня 2021',
+    }, {
+      img: 'const-progress/7.png',
+      text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
+      url: '#',
+      date: '01',
+      month:'квітня 2021',
+    }]
+
+    var statuses = [
+      {name: 'фундамент',num: '01', activeClass: ''},
+      {name: 'кровельні роботи',num: '02', activeClass: 'active'},
+      {name: 'зовнішні мережі',num: '03', activeClass: 'disabled'},
+      {name: 'кладочні роботи',num: '04', activeClass: 'disabled'},
+      {name: 'внутрішні мережі',num: '05', activeClass: 'disabled'},
+      {name: 'внутрішнє оздоблення',num: '06', activeClass: 'disabled'},
+      {name: 'роботи з благоустрою',num: '07', activeClass: 'disabled'},
+      {name: 'введення в експлутацію',num: '08', activeClass: 'disabled'},
+    ];
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/build-progress.js')
+block content
+  #const_progress
+    .page-content
+      include ../includes/breadcrumbs.pug
+      .const_progress__cards-wrapper
+        a(href="#" data-work-status).work-status
+          .svg-wrapper
+            svg.btn-circle(viewBox="0 0 200 200")
+              circle.circle-back(cx="100" cy="100" r="95" stroke-width="2" fill-opacity="0")
+              circle.circle(cx="100" cy="100" r="95" stroke-width="2" fill-opacity="0")
+          span Статус работ
+        .const_progress__cards
+          each cd in cards
+            .card
+              .card__wrapper(data-card)
+                a(href=cd.url)
+                  .card__month= cd.month
+                  +img(cd.img).card-img
+                  .card__date= cd.date
+                  .card__text= cd.text
+
+  .popup.build-popup
+    .popup__close-wrapper
+      .popup__close(data-close)
+        span
+        span
+    .popup-info.build-info(data-build-info)
+      .build-info__text
+        .build-info__text-date 02.10.2021
+        .build-info__text-description
+          ul Завершены работы по устройству кровель на эксплуатируемых террасах 2 и 3 этажей;
+            li Смонтировали нержавеющие стойки под стеклянное ограждение на террасах 2го и 3го этажей;
+            li Выполняется устройство плитки на террасах 2, 3, 5, 16 этажей-35%;
+            li Заавансированы и запущены в изготовление конструкции для обслуживания главного фасада;
+            li Выполняется разуклонка и гидроизоляция кровли на пристроенном паркинге, там, где будет парковая зона- 60%;
+            li Завершаем подготовку для монтажа в 3х оставшихся шахтах под пассажирские лифты-65%;
+            li Завершается подготовка мест общего пользования под чистовую отделку-70%;
+            li С начала июля приступаем к выполнению декоративной отделки МОПов;
+            li Заавансирована мебель в холлы входных групп, закуплены красивые люстры;
+            li Изготавливаются стеклопакеты с подогревом для остекления входных групп;
+            li Приступаем к испытаниям горизонтальной разводки водоснабжения;
+            li Завершили разводку сетей интернет по жилой части;
+            li Завершили разводку электроснабжения по жилой части;
+            li Завершили разводку под освещение в местах общего пользования;
+            li Завершаем разводку сетей поквартирной домофонии;
+            li В паркингах завершены работы по устройству сетей вентиляции, дымоудаления;
+            li Выполняются работы по устройству сетей пожарной сигнализации и пожаротушения по паркингам - 75%;
+            li Выполнена подготовка стен в паркинге к чистовой отделке;
+            li Приступаем к устройству разводки под освещение в паркингах;
+            li Выполняются работы по устройству эксплуатируемых террас внутреннего двора - 80%;
+            li Проводится испытание кровли внутреннего дворика на отм.0.000;
+            li Завезена тротуарная плитка во внутренний дворик на отм. 0.000, после испытаний кровли приступаем к укладке;
+            li Запущено в изготовление ограждения внутреннего двора;
+            li Выполнена поставка лифта на пристроенный паркинг;
+            li Заавансировано остекление лестницы и лифтовых тамбуров на пристроенном паркинге;
+            li Выполняется устройство подсистемы под навесной вентилируемый фасад паркинга-80%, приступаем к устройству керамогранита на фасаде паркинга;
+            li Завершается тендер по благоустройству заезда к ЖК Nebo от улицы В.Вернадского;
+            li Определены наполнение и концепция детской площадки
+
+      .build-info__video
+        iframe(width="560" height="315" src="https://www.youtube.com/embed/nH0FPhEZ7ZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+
+  .popup.status-popup
+    .popup__close-wrapper
+      .popup__close(data-close)
+        span
+        span
+    .popup-info.status__wrapper
+      .status
+        .status__title Статус робіт
+        .statuses-wrapper
+          each val in statuses
+            div(class="status " + val.activeClass)
+              span #{val.num}
+              span #{val.name}
+        .status-btns
+          span(data-status-prev)
+            +svg('arrow')
+          span(data-status-next)
+            +svg('arrow')
+
+        .status-info
+          .status-info__title кровельні роботи
+          .status-info__date Запланована дата завершення робіт:
+            span III квартал 2021 року
+          .status-info__text На об'єкті завершено роботи із формування фундамента та розпочато зведення каркаса. Ми використовуємо сучасні технології будування і якісні матеріали, виконуючи роботи згідно технічних вимог.
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

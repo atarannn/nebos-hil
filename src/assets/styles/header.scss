@@ -1,0 +1,159 @@
+.header.not-on-top {
+  background: $main-bcg;
+  border-bottom: 1px solid;
+  border-color: rgba(134, 137, 126, 0.25);
+  height: var(--header-h-2);
+  transition: height 0.3s linear;
+
+  .header__logo {
+    height: var(--header-h-2);
+
+    img {
+      opacity: 0;
+      transition: opacity .2s linear;
+    }
+
+    .second-logo {
+      opacity: 1;
+      transition: opacity .2s linear;
+    }
+  }
+}
+
+.second-header__call {
+  @include open-text(14px, $dgrc);
+  @include hover-underline($dgrc);
+}
+
+.second-burger__name {
+  @include open-text(14px, $dgrc);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  height: var(--header-h);
+  width: 100%;
+  transition: height .3s linear;
+
+  @include d-flex;
+  justify-content: space-between;
+
+  .header__tell{
+    font-size: 18px;
+  }
+
+  &__left {
+    @include d-flex;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    width: var(--logo-w);
+    position: relative;
+    transition: height 0.3s linear;
+
+    img {
+      opacity: 1;
+      transition: opacity .2s linear;
+
+      height: var(--logo-h);
+
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .second-logo{
+      opacity: 0;
+      transition: opacity .2s linear;
+
+      height: var(--logo-2-h);
+
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__btn {
+    @include btn-style;
+    @include hover-background($hc);
+  }
+
+  &__right {
+    @include d-flex;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+  }
+
+  &__call {
+    @include open-text;
+    @include hover-underline;
+  }
+
+  .burger {
+    @include d-flex;
+    cursor: pointer;
+
+    &__name {
+      margin-right: 15px;
+      @include open-text;
+    }
+
+    &__icon {
+      background: $wc;
+      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.12);
+      border-radius: 200px;
+      height: 65px;
+      width: 65px;
+      @include animation-circle;
+
+      &__line {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        z-index: 20;
+
+        display: flex;
+        flex-direction: column;
+        width: 15px;
+        height: 2px;
+        background: $dgrc;
+        pointer-events: none;
+
+        &:last-child {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    &:hover {
+      .burger__icon{
+        @include hover-animation-circle;
+
+        &__line {
+          background: $wc;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+ul.breadcrumbs
+  .breadcrumbs__top
+    li.breadcrumbs-item
+      a(href="index.html") Головна
+      span /
+    if breadcrumbsSubitem
+      each v in breadcrumbsSubitem
+        li.breadcrumbs-item.breadcrumbs-item__active
+          a(href="#")= v.label
+  li.breadcrumbs-title= title_page

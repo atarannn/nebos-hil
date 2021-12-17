@@ -1,0 +1,66 @@
+$default-font: "tenor", sans-serif;
+$default-font2: "open", sans-serif;
+$default-font3: "open-regular", sans-serif;
+
+$dgrc: #072826;
+$hc: #86897E;
+
+$wc: #fff;
+$wc2: #F6F6F7;
+$main-bcg: #F4F4F4;
+
+$gc-text: #626F75;
+$gc2: #86897E80;
+$popup-close: #000000BF;
+
+// удалить
+$bc: #000;
+$mc: #1A2941;
+$light: #FCFCFC;
+$dark: #1A2941;
+$gold: #CFA46E;
+
+:root {
+  --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
+  --header-h: 180px;
+  --header-h-2: 125px;
+  --header-margin-top: 30px;
+  --header-margin-top-2: 0;
+
+  --logo-h: 120px;
+  --logo-2-h: 17px;
+  --logo-w: 230px;
+
+  --footer-h: 250px;
+
+  --page-bottom-margin: 200px;
+
+  --margin: 100px;
+
+  --main-bottom: 60px;
+  --main-line-bottom: 57px;
+
+  --menu-margin: 60px;
+  --menu-margin2: 40px;
+  --menu-right-margin: 50px;
+
+  --page-content-top: 130px;
+
+  --breadcrumb-bottom: 120px;
+  --breadcrumb-bottom-2: 100px;
+  --breadcrumb-bottom-3: 50px;
+
+  --status-padding: 40px;
+
+  --const-prog-h: 445px;
+  --const-prog-margin: 150px;
+
+
+  --page-blocks-shift-2: 100px;
+  --page-bloks-shift: 150px;
+  --blocks-top-shift: 200px;
+
+  --after-absolute-blocks-top-shift: 300px;
+
+  --specials-info-blocks-margin: 175px;
+}

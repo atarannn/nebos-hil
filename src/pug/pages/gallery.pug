@@ -1,0 +1,66 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Галерея'
+    var id_page = 'id-page-gallery'
+    var class_page = 'class-page-gallery'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Галерея',
+        link: pagesLink[0].galley
+      }
+    ]
+    var slider = [
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'},
+      {img: 'gallery/gallery.png'}]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/gallery.js')
+block content
+  #gallery
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      .gallery-slider__wrap.swiper-container
+        .swiper-wrapper
+          each sl in slider
+            .swiper-slide.gallery-slide
+              .slide__content(data-swiper-parallax="300" data-swiper-parallax-delay="600" data-img)
+                  +img(sl.img)
+        .gallery-slider__amount
+          .gallery-slider__current.js-slider__current(data-current)
+            span(data-first-digit)
+            span(data-second-digit)
+          span.slider__all.js-slider__all(data-total)
+
+        .moving-arrow
+          +svg('gallery-arrow').arrow-style
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

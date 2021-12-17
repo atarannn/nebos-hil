@@ -1,0 +1,398 @@
+.form-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100vh;
+  background: $main-bcg;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+
+  &.active {
+    transition: opacity 0.5s ease-in, visibility 1ms linear;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: painted;
+  }
+}
+
+.call-popup-close {
+  width: 50%;
+}
+
+.call-popup-info{
+  width: 50%;
+}
+
+form {
+  position: absolute;
+  @include d-flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: var(--margin);
+  padding-right: var(--margin);
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+}
+
+.not-active {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+}
+
+.form-title {
+  @include tenor-text(100px, $dgrc);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.form-field:not(#t) {
+  position: relative;
+  margin: 60px 0 0;
+  background: none;
+  border-bottom: 1px solid rgba(134, 137, 126, 0.25);
+  transition: all 0.3s;
+}
+
+[data-animation="focus"] .input-message {
+  position: absolute;
+  top: 50%;
+  left: var(--input-padding);
+  z-index: 3;
+  padding: 0 7px;
+  display: flex;
+  font-weight: 500;
+  font-size: 14px;
+  transform: translate(0%, -50%);
+  user-select: none;
+  pointer-events: none;
+  background-color: #8e8e8e;
+  transition: all 0.16s cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+
+/*  */
+.form-field-input {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 60px;
+}
+.form-field__input {
+  @include open-thin-text(16px, $dgrc, left, 130%);
+  text-transform: uppercase;
+  width: 100%;
+  background: none;
+  border: none;
+  padding-bottom: 20px;
+
+  &::placeholder {
+    color: $dgrc;
+  }
+  &:focus + .form-field-message {
+    opacity: 1;
+  }
+}
+
+.home-content__link {
+  background: $dgrc;
+  border-radius: 200px;
+  height: 130px;
+  width: 130px;
+  margin-top: 60px;
+  @include animation-circle($hc);
+
+  @include d-flex;
+  justify-content: center;
+
+  svg {
+    height: 100%;
+    width: 37px;
+    transform: rotate(180deg);
+    fill: $wc;
+    z-index: 20;
+  }
+
+  &:hover {
+    @include hover-animation-circle;
+    & svg {
+      fill: $wc;
+    }
+  }
+
+  span {
+    display: none;
+  }
+}
+
+.main-button {
+  margin: 60px 0 0 auto;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1em;
+  color: #CFA46E;
+  border: none;
+  background: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.mask-absolute {
+  @include open-thin-text(16px, $dgrc, left, 130%);
+  text-transform: uppercase;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+
+  width: 100%;
+  padding-bottom: 20px;
+  background-color: $main-bcg;
+  display: block;
+}
+
+[data-animation="focus"] .form-field__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+[data-animation="none"] .form-field__input {
+  width: 100%;
+  border: none;
+}
+
+[data-animation="none"] .input-message {
+  @include open-thin-text(12px, transparent, left, 130%);
+  text-transform: lowercase;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  display: flex;
+  width: 100%;
+  min-height: 12px;
+  transform: translate(0%, 100%);
+}
+
+
+[data-field-input][data-status="field--inactive"]:not(#r) {
+  .input-message {
+    @include open-thin-text(16px, transparent, left, 130%);
+    text-transform: uppercase;
+  }
+}
+
+[data-field-input][data-status="field--active"]:not(#r) {
+  border-color: $mc;
+  .input-message {
+    color: $mc;
+  }
+}
+
+[data-field-input][data-status="field--error"]:not(#r) {
+  border-color: #EA4041;
+  .input-message {
+    color: #EA4041;
+  }
+}
+
+[data-field-input][data-status="field--success"]:not(#r) {
+  border-color: #96C480;
+  .input-message {
+    color: #96C480;
+  }
+}
+
+.selected:not(#f) .input-message {
+  top: 0;
+  font-size: 10px;
+}
+
+.requaired-block {
+  &-ico {
+    width: 25px;
+    height: 25px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.requaired-block {
+  &__ico {
+    width: 25px;
+    height: 25px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    font-size: vw(16);
+    line-height: 170%;
+    margin: 0px vw(18);
+    white-space: nowrap;
+
+    color: #BBBEC2;
+  }
+}
+
+.form-textarea {
+  position: relative;
+  margin: 82px 0 0 0;
+  textarea {
+    padding: 0;
+    height: 115px;
+    width: 100%;
+    display: flex;
+    background: none;
+    font-size: 28px;
+    line-height: 100%;
+    color: #FFFFFF;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    &::placeholder {
+      color: #ffffff;
+    }
+    &:focus + .form-field-message {
+      opacity: 1;
+    }
+  }
+}
+
+.form-field-message {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  font-size: 12px;
+  line-height: 120%;
+  color: #828282;
+  transform: translateY(calc(-100% - 10px));
+}
+
+.requaired-block-ico--position {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.form-checkbox__wrapper{
+  width: 100%;
+  height: 40px;
+  margin-top: 60px;
+}
+
+.form-checkbox {
+  @include d-flex;
+  width: 40%;
+  height: 100%;
+
+  @include open-thin-text(12px, $gc-text, left, 160%);
+  text-transform: uppercase;
+
+  position: relative;
+
+  padding-left: 60px;
+
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.form-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border-radius: 200px;
+  border: 1px solid rgba(134, 137, 126, 0.25);
+  transition: background-color .3s ease-in-out;
+}
+
+/* On mouse-over, add a grey background color */
+.form-checkbox:hover input ~ .checkmark {
+  background-color: rgba(134, 137, 126, 0.34);
+  transition: background-color .3s ease-in-out;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-checkbox input:checked ~ .checkmark {
+  background-color: $dgrc;
+  transition: background-color .3s ease-in-out;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.form-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-checkbox .checkmark:after {
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-width: 0 3px 3px 0;
+}
+
+/* Styles for thank you page */
+.form-thanks-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  height: 100vh;
+
+  &.thanks-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+    @include d-flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: var(--margin);
+    padding-right: var(--margin);
+  }
+
+  .form-thanks-btn{
+    @include btn-style;
+    @include hover-background;
+  }
+}

@@ -1,0 +1,43 @@
+#location {
+  .breadcrumbs {
+    margin-bottom: var(--breadcrumb-bottom-3);
+  }
+}
+
+.infrastructure__wrapper{
+  background: $dgrc;
+  padding-top: var(--blocks-top-shift);
+  padding-bottom: var(--blocks-top-shift);
+}
+
+.infrastructure__title{
+  @include tenor-text(130px, $wc);
+}
+
+.location-cards{
+  @include d-flex;
+  justify-content: space-between;
+}
+
+.location-card{
+  @include size(2);
+  position: relative;
+}
+
+.location-card-img{
+  height: max-content;
+  object-fit: cover;
+}
+
+.location-card__date {
+  @include tenor-text(110px, $dgrc);
+  position: absolute;
+  left: 0;
+  top: -60px;
+}
+
+.location-card__text {
+  padding-top: 30px;
+  @include open-thin-text(18px, $hc, left);
+  line-height: 160%;
+}

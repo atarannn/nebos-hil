@@ -1,0 +1,65 @@
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Kонтакти'
+    var id_page = 'page-contacts'
+    var class_page = 'page-contacts'
+    // var breadcrumbsBtn = 'filter'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Контакти',
+        link: pagesLink[0].contacts
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+  link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/map.js')
+block content
+  #contacts
+    .page-content
+      include ../includes/breadcrumbs.pug
+    .contacts__wrapper
+      .contacts__wrapper-left
+        .contacts-info-left
+          .contacts-info__block
+            .contacts-info__block-title відділ продажу:
+            .contacts-info__block-text м. Дніпро, вул. Володимира Вернадського, 35 Н
+          .contacts-info__block
+            .contacts-info__block-title графік роботи:
+            .contacts-info__block-text пн-пт: 9:30-18:30
+          .contacts-info__block
+            a.contacts-info__block-btn(href="https://g.page/nebo_town?share").button-style
+              span відкрити на карті
+
+        .contacts-info-right
+          .contacts-info__block
+            .contacts-info__block-title Номер:
+            a.contacts-info__block-tell(href="tel:0675230001") + 38 (067) 523-00-01
+          .contacts-info__block
+            .contacts-info__block-title Соціальні мережі:
+            .contacts-info__block-social
+              a(href="#") instagram
+              a(href="#") facebook
+              a(href="#") youtube
+
+
+      .contacts__wrapper-right
+        .map(width="960px" height="540px")
+          #map(width="960px" height="540px")
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

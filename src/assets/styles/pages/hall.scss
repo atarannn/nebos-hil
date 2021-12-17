@@ -1,0 +1,15 @@
+#hall {
+  .breadcrumbs {
+    margin-bottom: var(--breadcrumb-bottom-3);
+  }
+}
+
+.hall_img-block__wrapper{
+  width: 100%;
+  @include d-flex;
+  justify-content: space-between;
+
+  & img {
+    @include size(2);
+  }
+}

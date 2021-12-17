@@ -1,0 +1,119 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Особливості'
+    var id_page = 'id-page-specials'
+    var class_page = 'class-page-specials'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Особливості',
+        link: pagesLink[0].specials
+      }
+    ]
+    var slider = ['specials/2.png', 'specials/3.png', 'specials/4.png']
+    var specialsInfo = [
+      {num: '2', text: 'секції'},
+      {num: '14', text: 'поверхів'},
+      {num: '278', text: 'квартир'},
+      {num: '3', text: 'м, висота стелі'},
+      {num: '7', text: 'швидкісних ліфтів, з них 4 вантажних (до 1000 кг)'},
+      {num: '2', text: 'рівні підземного паркінгу із автомийками'}]
+    var secondSlider = [
+      {img: 'specials/6.png', text: 'Головний фасад виконаний з алюмінієвого профілю Alutech у відтінку Graphite Grey. Фасад повністю складається з панорамних вікон в підлогу, для яких ми вибрали склопакет Titan 70/54. Фасад у внутрішньому дворі виконаний із декоративним покриттям Caparol'},
+      {img: 'specials/7.png', text: 'Панорамні вікна у NEBOS’HILL складаються з алюмінієвого профілю і двокамерного склопакета з загартованим склом 8 і 6 мм, а обидві камери склопакета заповнені аргоном. Завдяки такій системі, вікно має високу ударостійкість, шумоізоляцію та є енергоефективним'},
+      {img: 'specials/8.png', text: 'Ми працюємо тільки із якісними матеріалами, обираємо надійних підрядників та дотримуємось усіх стандартів надійного та безпечного будівництва'},
+      {img: 'specials/9.png', text: 'Просторий та зручний ліфт у будинку – невід\'ємна частина комфортного житлового простору, тому в нашому ліфті Вам буде зручно перевозити не тільки велосипед чи дитячу коляску, а й великогабаритні меблі для Вашої нової квартири! Ліфти OTIS – це стильний дизайн, інноваційні технології та надійні експлуатаційні якості. Тихо, надійно, безпечно, енергоефективність класу А'},
+      {img: 'specials/10.png', text: 'Доступ на територію NEBOS’HILL мають тільки мешканці, а цілодобове відеоспостереження, охорона та консьєрж забезпечують повну безпеку і спокій. У громадських місцях на території комплексу встановлені внутрішні і зовнішні камери відеоспостереження: у ліфтах, холах, на паркінгах та прибудинкової території. NEBOS’HILL забезпечує захищеність мешканців, не порушуючи особистого комфорту і простору'},
+      {img: 'specials/11.png', text: 'ви зможете не турбуватися про безпеку своєї сім\'ї та дітей. Закритий двір з цілодобовим відеоспостереженням дозволить не переживати, якщо ваші діти вийдуть погуляти у двір, адже вони будуть під вашим постійним наглядом. Більше того: у кожного мешканця NEBOS\'HILL буде доступ до відеокамер, встановлених у місцях, де гуляють їхні діти, а також у холі'},
+      {img: 'specials/12.png', text: 'В основу підлог ми заклали цементно-піщану стяжку з шумоізоляційним шаром. Ви не почуєте ні звуків пральної машини, ні голосів ваших сусідів, ні тупоту дітей зверху'},
+      {img: 'specials/13.png', text: 'Комори є на кожному поверсі. Все необхідне може зберігатися в окремому приміщенні, та не займатиме зайвих квадратних метрів у вашій улюбленій оселі'},
+      {img: 'specials/14.png', text: 'запроєктована система димовидалення на 100%. Це означає, що при виникненні сигналу «пожежа» відкривається найближчий клапан димовидалення до вогнища задимлення і запускається вентилятор димовидалення'},
+      {img: 'specials/15.png', text: 'автономне електроопалення із можливістю вибору опалювального приладу: Електрокотел, електропанелі, обігрів за допомогою кондиціонера зима-літо'},
+      {img: 'specials/16.png', text: 'Ми запроектували квартири із вільним плануванням, площею від 36 м2 до 114 м2. За бажання великих площ існує можливість об\'єднання кількох квартир. Тільки ви вирішуєте, де буде розташована спальня, об\'єднувати чи вітальню з кухнею і якого розміру буде дитяча кімната або ваш особистий кабінет. Ви навіть можете поєднати кілька сусідніх квартир і конструювати власне унікальне життєвий простір'},
+      {img: 'specials/17.png', text: 'ЖК NEBOS\'HILL водопостачання спроектовано за стандартами надійності та енергоефективності:\n' +
+                'Система холодного водопостачання: \n' +
+                'від підвищення насосної станції із системним розведенням та фільтрами для очищення води при введенні в будівлю\n' +
+                'Гаряче водопостачання з енергозберігаючим тарифом, з індивідуальною можливістю встановлення нагрівального приладу'}]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/specials.js')
+  script(defer src='./assets/scripts/purchase_terms.js')
+block content
+  #specials
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      .absolute-block__wrapper
+        +img('specials/1.png').main-page-img
+
+        .absolute-block
+          .half-big-block.blocks-left-shift
+            .page-blocks__absolute-big-title ЖК NEBOS'HILL розташований у самому серці Дніпра
+      .half-block.half-right-block.after-absolute-blocks-top-shift
+        .page-blocks__text це місто визнано історичною цінністю ще з часів Катерини ІІІ це робить його ще більш привабливим і бажаним для життя. Атмосфера, дух місця - вони невловимі. Їх не виміряти тоннами будівельних матеріалів. Не підрахувати квадратними метрами приміщення
+
+      .swiper-container.slider-block__wrapper.location-swiper.blocks-top-shift
+        .swiper-wrapper.slider-block
+          each crd in slider
+            .swiper-slide.slide.slider-block-info
+              +img(crd).slider-block-card__img
+
+      .blocks-top-shift
+        .half-block.half-right-block
+          .page-blocks__big-text Наше життя підпорядковується стандартним та зручним маршрутам
+        .row-block.top-padding-blocks-2
+          .half-block.half-left-block
+            .page-blocks__text Як добре, що не потрібно робити спеціальну зупинку для придбання здорової їжі. Здорова їжа та смачна кава - це просто і прямо на території NEBOS'HILL
+          +img('specials/5.png').right-block-img
+
+      .specials-info__wrapper.blocks-top-shift
+        .specials-info__title.blocks-left-shift жк NEBOS'HILL - це :
+
+        .specials-info-cards.top-padding-blocks-2.blocks-left-shift.blocks-right-shift
+          each sp in specialsInfo
+            .specials-info-card
+              .specials-info-card__num=sp.num
+              .specials-info-card__text=sp.text
+
+      .blocks-top-shift
+        .half-block.half-right-block
+          .page-blocks__big-text У ЖК NEBOS'HILL передбачено два види фасаду головний фасад і фасад у внутрішньому дворі
+
+        .top-padding-blocks-2
+          //.specials-slider__wrap.swiper-cont
+          //  .swiper-wrapper
+          //    each sl in secondSlider
+          //      .swiper-slide.specials-slide
+          //        .slide__content(data-swiper-parallax="300" data-swiper-parallax-delay="600" data-img)
+          //          .half-block.half-left-block
+          //            .slider-content-text= sl.text
+          //          +img(sl.img).right-block-img.specials-slider__img
+          //
+          //  .specials-slider__amount
+          //    .specials-slider__current.js-slider__current(data-current)
+          //      span(data-first-digit)
+          //      span(data-second-digit)
+          //    span.slider__all.js-slider__all(data-total)
+
+            .moving-arrow
+              +svg('gallery-arrow').arrow-style
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

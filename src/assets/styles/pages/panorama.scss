@@ -1,0 +1,36 @@
+#panorama {
+  .breadcrumbs {
+    margin-bottom: var(--breadcrumb-bottom-3);
+  }
+}
+
+.panorama-wrapper {
+  position: relative;
+  height: 90vh;
+}
+
+.panorama-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.panorama-wrapper__faq {
+  @include d-flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: grab;
+
+  picture{
+    height: 110px;
+    width: 110px;
+  }
+}

@@ -1,0 +1,100 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Умови придбання'
+    var id_page = 'id-page-purchase_terms'
+    var class_page = 'class-page-purchase_terms'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Умови придбання',
+        link: pagesLink[0].purchase_terms
+      }
+    ]
+    var purchaseInfo = [
+      {num: '01', text: 'перший внесок — 30%'},
+      {num: '02', text: 'строк розстрочки до завершення будівельних робіт - 4 квартал 2022 року'},
+      {num: '03', text: 'виплати у доларах із гнучким курсом'},
+      {num: '04', text: 'пільговий період без подорожчання — 18 місяців'},
+    ]
+    var slider = [
+      {img:'purchase_terms/3.png', text:'100% оплата'},
+      {img:'purchase_terms/4.png', text:'Розстрочка'},
+      {img:'purchase_terms/5.png', text:'кредит'}
+    ]
+
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/purchase_terms.js')
+block content
+  #purchase_terms
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      .purchase_terms
+        +img('purchase_terms/1.png').main-page-img
+
+        .page-blocks
+          .top-block__wrapper
+            .half-big-block.blocks-left-shift
+              .page-blocks__big-text Якщо ви вже визначилися з бажаним поверхом та плануванням майбутної квартири, саме час дізнатися про умови  придбання житла вашої мрії
+            .half-block.top-padding-blocks-2.half-right-block
+              .page-blocks__text У відділі продажів ви отримаете  повну інформацію про проект, ознайомитеся з дозвільною документацією та варіантами розрахунку:
+
+          .swiper-container.blocks-top-shift.slider-block__wrapper
+            .swiper-wrapper.slider-block
+              each crd in slider
+                .swiper-slide.slide.slider-block-info
+                  +img(crd.img).slider-block-card__img
+                  .page-blocks__text.slider-block-card__text= crd.text
+
+
+          .purchase_terms-info.blocks-top-shift
+            .half-big-block.half-left-block
+              .page-blocks__title Розстрочка від забудовника
+            .purchase_terms-info-row__wrapper.top-padding-blocks-2
+              ul.purchase_terms-info-row
+                 each pi in purchaseInfo
+                  li.purchase_terms-info__block
+                    span.purchase_terms-info__num= pi.num
+                    .purchase_terms-info__text.page-blocks__text= pi.text
+              .half-block.top-padding-blocks.half-right-block
+                .page-blocks__text Це зручний варіант для тих, хто вже зараз хоче придбати житло та розподілити виплати на тривалий термін
+
+          .row-block.blocks-top-shift.position-relative
+            .half-block.half-left-block.position-absolute__text
+              .page-blocks__big-text Особливо вигідна купівля нерухомості у жк NEBOS'HILL на початкових етапах будівництва
+              .page-blocks__text Ми встановили дуже приємні ціни та пропонуємо вам великий вибір планувань. Після вибору квартири ми укладаємо з вами договір і ви вносите початковий платіж або 100% оплату
+            +img('purchase_terms/2.png').right-block-img
+
+          .top-block__wrapper.blocks-top-shift
+            .half-block.half-right-block
+              .page-blocks__text Детальніше про умови придбання вам розкажуть наші менеджери відділу продажу
+            .half-big-block.blocks-left-shift.top-padding-blocks
+              .page-blocks__big-text
+                p Телефонуйте за номером
+                a(href="tel:0675320001").purchase_terms-link
+                  span + 38 (067) 523-00-01
+                | або надсилайте заявку на сайті, ми обов’язково з вами зв’яжемося
+              a(data-open-call-popup).page-blocks__links
+                span замовити дзвінок
+                .link__arrow
+                  +svg('arrow-green')
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

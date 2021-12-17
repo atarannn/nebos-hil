@@ -1,0 +1,95 @@
+-
+  var menu1 = [
+    ['Головна', 'index.html'],
+    ['Обрати квартиру', ''],
+    ['VR-тур', ''],
+    ['Хід будівництва', 'construction_progress.html'],
+    ['Умови придбання', 'purchase_terms.html'],
+    ['Комерція', '']
+  ]
+  var menu2 = [
+    ['Характеристики', 'characteristic.html'],
+    ['Панорама', 'panorama.html'],
+    ['Галерея', 'gallery.html'],
+    ['Документи', 'documents.html'],
+    ['Забудовник', 'developer.html']
+  ]
+  var menu3 = [
+    ['Особливості', 'specials.html'],
+    ['Локація', 'location.html'],
+    ['Тераси', ''],
+    ['Паркінг', 'parking.html'],
+    ['Хол', 'hall.html'],
+    ['Дозвілля', 'free_time.html'],
+  ]
+  var menu4 = [
+    ['Вибір на 3D моделі', ''],
+    ['Підбір за параметрами', ''],
+    ['1-кімнатні', ''],
+    ['2-кімнатні', ''],
+    ['3-кімнатні', ''],
+    ['4-кімнатні', '']
+  ]
+  var menu5 = [
+    ['Контакти', 'contacts.html'],
+    ['Зворотній зв’язок', '']
+  ];
+
+.menu-wrap(data-menu data-disable-page-scroll)
+  .menu
+    .menu__top
+      .menu__left
+        a(href='index.html').header__logo
+          img(src="assets/images/logo.svg")
+
+        a(href="#").vr-tour
+          .vr-tour__icon
+            +svg('arrow-menu')
+          span vr-тур
+
+      .menu__right
+        .call(data-lang="mobile")
+          a(data-open-call-popup).header__call замовити дзвінок
+        .call-btn
+          a(href='tel:0442992203').header__btn.button-style.header__tell
+            span + 38 (067) 523-00-01
+
+        .menu__close(data-close-menu)
+            span.menu__name Меню
+            .menu__close-icon
+                span
+                span
+
+
+    .menu__section-left
+      .menu__section.menu__section-big
+        ul
+          each el in menu1
+            li
+              a(href=el[1] data-animation1)=el[0]
+
+    .menu__section-right
+      .menu__section
+        .menu__title(data-animation2) Про проєкт
+        ul
+          each el in menu2
+            li
+              a(href=el[1] data-animation2)= el[0]
+      .menu__section
+        .menu__title(data-animation3) Про Комплекс
+        ul
+          each el in menu3
+            li
+              a(href=el[1] data-animation3)= el[0]
+      .menu__section
+        .menu__title(data-animation4) Квартири
+        ul
+          each el in menu4
+            li
+              a(href=el[1] data-animation4)= el[0]
+      .menu__section
+        .menu__title(data-animation5) Контакти
+        ul
+          each el in menu5
+            li
+              a(href=el[1] data-animation5)= el[0]

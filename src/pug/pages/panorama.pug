@@ -1,0 +1,43 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Панорама'
+    var id_page = 'id-page-panorama'
+    var class_page = 'class-page-panorama'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Панорама',
+        link: pagesLink[0].panorama
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/panorama.js')
+block content
+  #panorama
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      .panorama-wrapper(data-panorama-wrapper)
+        <iframe class="panorama-frame" data-panorama allowfullscreen="" style="border-style:none;" src="./static/panorama/pannellum.htm#panorama=../../assets/images/panorama/panorama.png&amp;autoLoad=true&amp;preview=http://localhost/src/assets/images/panorama/panorama.png"></iframe>
+        .panorama-wrapper__faq(data-panorama-faq)
+          picture
+            img(src="./assets/images/panorama/cursor.svg")
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

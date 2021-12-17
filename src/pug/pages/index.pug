@@ -1,0 +1,78 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'home'
+    var class_page = 'home'
+
+    var slider = [{
+      img: 'main/main-slider-1.png',
+      title: 'Унікальний проект у «тихому центрі» Дніпра',
+      url: '',
+      linkText: 'дізнатись про проект',
+    },{
+      img: 'main/main-slider-2.png',
+      title: 'жк neboshill має понад 20 варіантів планувань квартир',
+      url: '',
+      linkText: 'Обрати квартиру',
+    },{
+      img: 'main/main-slider-3.png',
+      title: 'vr-тур ознайомить вас з територією будинку',
+      url: '',
+      linkText: 'перейти до Vr-туру',
+    },{
+        img: 'main/main-slider-4.png',
+        title: 'допоможемо вам с вибором вашого житла',
+        url: '',
+        linkText: 'дізнатись контакти',
+    }]
+
+block meta
+  title= 'Главная'
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/home.js')
+block content
+  section.home-section-0
+    .home-slider.js-slider
+      .gallery-slider
+        .gallery-slider__fixed-proportions-container
+          .gallery-slider__wrap.swiper-container
+            .swiper-wrapper
+              each sl in slider
+                  .swiper-slide.slide
+                      .slide__content(data-swiper-parallax="300" data-swiper-parallax-delay="600")
+                          .slide__content__left
+                              .slide__title= sl.title
+                              a(href= sl.url data-swiper-parallax="500").slide__link
+                                  span= sl.linkText
+                                  .link__arrow
+                                      +svg('arrow-green')
+
+                          .slide__content__right
+                              .gradient-img
+                              +img(sl.img)
+
+
+        .home-slider__amount
+            span.home-slider__current.js-home-slider__current(data-current)
+
+        .home-slider__arrows
+            .home-slider__arrow.home-slider__prev(data-prev)
+                +svg('arrow')
+            .home-slider__arrow.home-slider__next(data-next)
+                +svg('arrow')
+        .home-slider__autoplayLine
+            svg(width="450" height="2" viewBox="0 0 450 2" fill="none" xmlns="http://www.w3.org/2000/svg")
+                line(x1="0" y1="2" x2="450" y2="2" stroke-width="5")
+                line(data-line  x1="0" x2="450" y1="2" y2="2" stroke-width="5" style="transition: none 0s ease 0s;")
+
+block header
+  include ../includes/header.pug

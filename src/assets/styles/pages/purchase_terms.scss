@@ -1,0 +1,34 @@
+#purchase_terms{
+  .breadcrumbs {
+    margin-bottom: var(--breadcrumb-bottom-3);
+  }
+}
+
+.purchase_terms-info-row__wrapper {
+  padding-left: var(--margin);
+  padding-right: var(--margin);
+}
+
+.purchase_terms-info-row {
+  @include size(5);
+  @include row-flex;
+  margin-left: 0;
+  justify-content: space-between;
+}
+
+.purchase_terms-info__block {
+  @include d-flex(flex-start);
+  flex-direction: column;
+  width: 250px;
+
+  .purchase_terms-info__num{
+    @include tenor-text(110px, $dgrc);
+    margin-bottom: 10px;
+  }
+}
+
+.purchase_terms-link {
+  @include tenor-text(40px, $dgrc);
+  @include hover-underline($dgrc);
+  padding: 0 10px;
+}

@@ -1,0 +1,28 @@
+.form-wrapper(data-call-popup data-disable-page-scroll)
+    .popup
+        .call-popup-close.popup__close-wrapper(data-close-call-popup)
+            .popup__close
+                span
+                span
+        .call-popup-info
+            form(data-home-contact autocomplete="off")
+                .form-title замовити дзвінок
+                .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+                    input(type='text' name="name" placeholder="Ваше ім’я").form-field__input
+                    .input-message(data-input-message)
+                .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+                    input(type='text' name="phone" placeholder="ваш номер").form-field__input
+                    .mask-absolute.js-mask-absolute ваш номер
+                    .input-message(data-input-message)
+                .form-checkbox__wrapper
+                    label.form-checkbox даю згоду на обробку персональних даних
+                        input(type="checkbox" checked="checked")
+                        span.checkmark
+                button( type="submit" data-btn-submit).home-content__link.link
+                    +svg('arrow')
+                    span(data-btn-submit-text)
+
+            .form-thanks-wrapper(data-call-thanks-popup)
+                .form-title Дякуємо за звернення!
+                a(href="index.html").form-thanks-btn.button-style
+                    span на головну

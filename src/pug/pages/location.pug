@@ -1,0 +1,105 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Локація'
+    var id_page = 'id-page-location'
+    var class_page = 'class-page-location'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Локація',
+        link: pagesLink[0].location
+      }
+    ]
+    var slider = [
+      {img: 'location/2.png', text: 'Тихий центр'},
+      {img: 'location/3.png', text: 'Піша доступність до парку Шевченка'},
+      {img: 'location/4.png', text: 'Поряд найкращі ресторани міста'},
+      {img: 'location/5.png', text: 'Банки, торгові центри та свіжі продукти із «Сільпо»'},
+    ]
+    var cards = [{
+      img: 'location/8.png',
+      text: 'кафе, кондитерської, супермаркету',
+      date: '01',
+    }, {
+      img: 'location/9.png',
+      text: 'шоуруму, салону краси, спортклубу',
+      date: '02',
+    }, {
+      img: 'location/10.png',
+      text: 'магазину, пекарні, хімчистки ',
+      date: '03',
+    }]
+
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/location.js')
+  script(defer src='./assets/scripts/purchase_terms.js')
+block content
+  #location
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      .absolute-block__wrapper
+        +img('location/1.png').main-page-img
+
+        .absolute-block
+          .half-mini-block.blocks-left-shift
+            .page-blocks__text Абсолютна перевага ЖК — його локація:
+          .half-big-block.blocks-right-shift
+            .page-blocks__absolute-big-title вул. Володимира Вернадського 35Н
+
+      .swiper-container.slider-block__wrapper.location-swiper.after-absolute-blocks-top-shift
+        .swiper-wrapper.slider-block
+          each crd in slider
+            .swiper-slide.slide.slider-block-info
+              +img(crd.img).slider-block-card__img
+              .page-blocks__text.slider-block-card__text= crd.text
+
+      .row-block.blocks-top-shift.position-relative
+        .half-big-block.half-left-block.position-absolute__text
+          .page-blocks__title.blocks-right-shift У ЖК NEBOS'HILL все максимально зручно
+          .page-blocks__text.mini-text У тому числі в'їзд та виїзд на три головні вулиці міста – Крутогірний узвіз, вулицю Ливарну та Вернадського, з якої ви легко потрапите прямо на Набережну
+        +img('location/6.png').right-block-img
+
+      .infrastructure__wrapper.blocks-top-shift
+        .infrastructure__title.blocks-left-shift інфраструктура
+
+        .top-padding-blocks
+          .half-block.half-right-block
+            .page-blocks__big-white-text Наше життя підпорядковується стандартним та зручним маршрутам
+          .row-block.top-padding-blocks-2
+            .half-block.half-left-block
+              .page-blocks__white-text Як добре, що не потрібно робити спеціальну зупинку для придбання здорової їжі. Здорова їжа та смачна кава - це просто і прямо на території NEBOS'HILL
+            +img('location/7.png').right-block-img
+
+      .blocks-top-shift
+        .half-block.half-right-block
+          .page-blocks__big-text Концепція комплексу передбачає наявність комерційних приміщень, які підходять для:
+
+        .blocks-top-shift
+          .location-cards.blocks-right-shift.blocks-left-shift
+            each cd in cards
+              .location-card
+                +img(cd.img).location-card-img
+                .location-card__date= cd.date
+                .location-card__text= cd.text
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

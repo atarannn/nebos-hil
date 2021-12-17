@@ -1,0 +1,68 @@
+#characteristic {
+  .breadcrumbs {
+    margin-bottom: var(--breadcrumb-bottom);
+  }
+
+  .content-wrapper {
+    margin-left: var( --margin);
+    margin-right: var( --margin );
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .content-wrapper>*:nth-child(2n+1) {
+    align-self: flex-start;
+  }
+
+  .content-wrapper>*:nth-child(2n) {
+    align-self: flex-end;
+    padding-left: 30px;
+  }
+}
+
+.characteristic-block {
+  width: 50%;
+
+  &__info {
+    width: 70%;
+  }
+
+  .characteristic__text {
+    @include open-thin-text(18px, $hc, left, 160%);
+  }
+}
+
+.characteristic-block__title {
+  @include d-flex(flex-start);
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  .characteristic__title {
+    position: relative;
+    cursor: pointer;
+    @include tenor-text(40px, $dgrc);
+  }
+}
+
+.hover-reveal {
+  position: fixed;
+  width: 350px;
+  height: 230px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.hover-reveal__inner,
+.hover-reveal__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hover-reveal__img {
+  background-size: cover;
+  background-position: 50% 50%;
+}

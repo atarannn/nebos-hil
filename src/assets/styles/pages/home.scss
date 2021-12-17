@@ -1,0 +1,171 @@
+.home {
+  &-section{
+    display: none;
+
+    &-0 {
+      position: relative;
+      background-image: url(../images/main/main.png);
+      background-size: cover;
+
+      @include d-flex;
+      justify-content: flex-end;
+
+      max-height: 100vh;
+      width: 100%;
+    }
+  }
+
+  &-slider {
+    display: inline-block;
+    max-height: 100vh;
+    width: 100%;
+
+    &__arrows {
+      position: absolute;
+      bottom: var(--main-bottom);
+      right: calc(50% + 100px);
+      z-index: 20;
+
+      @include d-flex;
+    }
+
+    &__arrow {
+      svg {
+        @include hover-arrow;
+        @include d-flex;
+      }
+
+      &:first-child {
+        margin-right: 40px;
+      }
+    }
+
+    &__next {
+      transform: rotate(180deg);
+    }
+
+    &__amount {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: 100;
+    }
+
+    &__current {
+      @include tenor-text(160px, $wc2);
+      line-height: 0;
+    }
+
+    &__autoplayLine {
+      position: absolute;
+      bottom: var(--main-line-bottom);
+      left: var(--margin);
+      z-index: 100;
+
+      & svg{
+        & line {
+          stroke: $hc;
+        }
+
+        & line[data-line] {
+          stroke: $dgrc;
+        }
+
+        @include to(1440px) {
+          width: 300px;
+        }
+      }
+    }
+  }
+}
+
+.slide {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  &__content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    @include d-flex;
+    justify-content: space-between;
+
+    &__right {
+      width: 50%;
+      height: 100%;
+      position: relative;
+
+      img {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__left {
+      width: 50%;
+      height: 100%;
+      padding-left: var(--margin);
+      padding-right: var(--margin);
+
+      @include d-flex(flex-start);
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    @include tenor-text(65px, $dgrc);
+    text-align: left;
+
+    opacity: 0;
+    transform: translateY(100px);
+    transition-duration: 0.7s;
+
+    @include to(1440px) {
+      @include tenor-text(45px, $dgrc);
+    }
+  }
+
+  &__link {
+    @include d-flex;
+    justify-content: flex-start;
+    @include tenor-text(16px, $dgrc);
+    text-align: left;
+    margin-top: 40px;
+
+    opacity: 0;
+    transform: translateY(100px);
+    transition-duration: 0.7s;
+    @include hover-underline($dgrc);
+
+    & span {
+      margin-right: 15px;
+    }
+
+    .link__arrow svg {
+      height: 10px;
+      width: 7px;
+    }
+  }
+}
+
+.swiper-slide-active {
+  .slide__title {
+    transition-delay: 0.4s;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .slide__link {
+    transition-delay: 0.6s;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

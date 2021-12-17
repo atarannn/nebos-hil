@@ -1,0 +1,222 @@
+.menu {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 5% 30% auto;
+  grid-template-rows: auto 140px 1fr;
+  grid-template-areas: 'top top top'
+  '. . .'
+  '. left right';
+
+  &-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: $main-bcg;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+
+    &.active {
+      transition: opacity 0.5s ease-in, visibility 1ms linear;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: painted;
+    }
+  }
+
+  .header__tell{
+    font-size: 18px;
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: var(--header-h);
+
+    grid-area: top;
+  }
+
+  &__left, &__right {
+    @include d-flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+  }
+
+  .vr-tour {
+    @include d-flex;
+    justify-content: flex-start;
+
+    &__icon {
+      background: $dgrc;
+      border-radius: 200px;
+      height: 65px;
+      width: 65px;
+      @include animation-circle($hc);
+
+      @include d-flex;
+      justify-content: center;
+
+      svg {
+        height: 11px;
+        width: 8px;
+        fill: $wc;
+        z-index: 20;
+      }
+    }
+
+    & span {
+      @include open-text(14px, $dgrc);
+      margin-left: 20px;
+    }
+
+    &:hover .vr-tour__icon{
+      @include hover-animation-circle;
+      & svg {
+        fill: $wc;
+      }
+    }
+  }
+
+  .call a{
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .call-btn {
+    @include btn-style;
+    @include hover-background($hc);
+  }
+
+  &__section {
+
+    &-left {
+      grid-area: left;
+    }
+
+    &-big {
+      li {
+        margin-top: var(--menu-margin2);
+
+        &:first-child {
+          margin: 0;
+        }
+
+        a {
+          @include tenor-text;
+          @include hover-underline($dgrc);
+        }
+      }
+    }
+
+    &-right {
+      grid-area: right;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start ;
+      align-items: flex-start;
+
+      .menu__section {
+        margin-bottom: var(--menu-margin);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+      .menu__title {
+        @include tenor-text;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 100%;
+        margin-top: 20px;
+
+        li {
+          overflow: hidden;
+          margin-right: var(--menu-right-margin);
+
+          a {
+            display: inline-block;
+            overflow: hidden;
+
+            @include open-thin-text(18px, $gc-text);
+            @include hover-underline($dgrc);
+          }
+        }
+      }
+    }
+  }
+
+  &__close {
+    @include d-flex;
+    cursor: pointer;
+
+    .menu__name {
+      margin-right: 15px;
+      @include open-text(14px, $dgrc);
+    }
+
+    &-icon {
+      transition: all 0.3s ease-in-out;
+      @include animation-circle;
+
+      background: $wc;
+      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.12);
+      border-radius: 200px;
+      height: 65px;
+      width: 65px;
+      cursor: pointer;
+
+      position: relative;
+
+      & span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 20;
+
+        display: inline-block;
+        width: 15px;
+        height: 2px;
+        background: $dgrc;
+        pointer-events: none;
+
+        transform: translate(-50%, -50%)rotate(45deg);
+        transition: background-color 0.3s ease-in;
+
+        &:nth-child(2) {
+          transform: translate(-50%, -50%)rotate(-45deg);
+        }
+      }
+    }
+
+    &:hover {
+      .menu__close-icon {
+        @include hover-animation-circle;
+
+        & span {
+          background: $wc;
+        }
+      }
+    }
+  }
+}

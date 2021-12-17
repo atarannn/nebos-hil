@@ -1,0 +1,56 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Характеристики'
+    var id_page = 'id-page-characteristic'
+    var class_page = 'class-page-characteristic'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Характеристики',
+        link: pagesLink[0].characteristic
+      }
+    ]
+    var characteristic = [
+      {title: 'Вигідне розміщення', text: 'NEBOS’HILL розташований у тихому центрі Дніпра. Поруч знаходиться парк ім.Т.Г.Шевченко, Набережна Дніпра, та центр міста. Місцезнаходження ЖК дозволяє заїжджати і виїжджати з нього з двох сторін (вул. Вернадського і вул. Ливарна) - це істотно заощадить час мешканцям.', img: 'characteristic/1.png'},
+      {title: 'Закрита територія', text: 'Доступ на територію NEBOS’HILL мають тільки мешканці, а цілодобове відеоспостереження, охорона та консьєрж забезпечують повну безпеку і спокій в NEBOS’HILL.', img: 'characteristic/2.png'},
+      {title: 'Пожежогасіння та димовидалення', text: 'У NEBOS’HILL запроєктована система димовидалення на 100%. Це означає, що при виникненні сигналу «пожежа» відкривається найближчий клапан димовидалення до вогнища задимлення і запускається вентилятор димовидалення.', img: 'characteristic/3.png'},
+      {title: 'Відеоспостереження', text: 'У громадських місцях на території комплексу встановлені внутрішні і зовнішні камери відеоспостереження: у ліфтах, холах, на паркінгах та прибудинкової території. NEBOS’HILL забезпечує захищеність мешканців, не порушуючи особистого комфорту і простору.', img: 'characteristic/4.png'},
+      {title: 'Якісні матеріали', text: 'Ми працюємо тільки із якісними матеріалами, обираємо надійних підрядників та дотримуємось усіх стандартів надійного та безпечного будівництва.', img: 'characteristic/5.png'},
+      {title: 'Склопакет', text: 'Панорамні вікна у NEBOS’HILL складаються з алюмінієвого профілю і двокамерного склопакета з загартованим склом 8 і 6 мм, а обидві камери склопакета заповнені аргоном. Завдяки такій системі, вікно має високу ударостійкість, шумоізоляцію та є енергоефективним.', img: 'characteristic/6.png'},
+      {title: 'Стяжка із шумоізоляцією', text: 'В основу підлог ми заклали цементно-піщану стяжку з шумоізоляційним шаром. Ви не почуєте ні звуків пральної машини, ні голосів ваших сусідів, ні тупоту дітей зверху.', img: 'characteristic/7.png'},
+      {title: 'Вільне планування', text: 'Тільки ви вирішуєте, де буде розташована спальня, об\'єднувати чи вітальню з кухнею і якого розміру буде дитяча кімната або ваш особистий кабінет. Ви навіть можете поєднати кілька сусідніх квартир і конструювати власне унікальне життєвий простір.', img: 'characteristic/8.png'},
+      {title: 'Фасад', text: 'У ЖК NEBOS\'HILL передбачено два види фасаду: головний фасад і фасад у внутрішньому дворі. Головний фасад виконаний з алюмінієвого профілю Alutech у відтінку Graphite Grey. Фасад повністю складається з панорамних вікон в підлогу, для яких ми вибрали склопакет Titan 70/54. Фасад у внутрішньому дворі виконаний із декоративним покриттям Caparol.', img: 'characteristic/9.png'},
+    ];
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/characteristic.js')
+  script(defer src='./assets/scripts/no-scroll.js')
+block content
+  #characteristic
+    .page-content
+      include ../includes/breadcrumbs.pug
+
+    .content-wrapper
+      each char in characteristic
+        .characteristic-block(data-characteristic)
+          .characteristic-block__info
+            .characteristic-block__title(data-fx="2")
+              a.characteristic__title(data-img="./assets/images/"+char.img)= char.title
+            .characteristic__text= char.text
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
