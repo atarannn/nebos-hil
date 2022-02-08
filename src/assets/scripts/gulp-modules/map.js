@@ -80,7 +80,13 @@ function initMap() {
     // var baseFolder = '/wp-content/themes/centower/assets/images/markers/';
     const baseFolder = './assets/images/markers/';
     let defaultMarkerSize = new google.maps.Size(75, 75);
-    const buildLogoSize = new google.maps.Size(75, 75);
+    // const buildLogoSize = new google.maps.Size(75, 75);
+    if (document.documentElement.clientWidth < 1600) {
+        var buildLogoSize = new google.maps.Size(60, 60);
+    }
+    if (document.documentElement.clientWidth < 575) {
+        var buildLogoSize = new google.maps.Size(50, 50);
+    }
     const markersAdresses = {
         main: `${baseFolder}marker.svg`,
     };

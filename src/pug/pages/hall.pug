@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Хол'
     var id_page = 'id-page-hall'
-    var class_page = 'class-page-hall'
+    var class_page = 'page-hall'
     var breadcrumbsSubitem = [
       {
         label: 'Хол',
@@ -24,10 +24,13 @@ block scripts
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #hall
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       +img('hall/1.png').main-page-img
@@ -35,28 +38,29 @@ block content
       .page-blocks
         .top-block__wrapper
           .top-block-row.blocks-left-shift
-            .page-blocks__big-title Дизайн місць загального користування продовжує загальну концепцію ЖК NEBOS'HILL
-            a(href="#").page-blocks__dev-logo
-              +img('hall/mramor.svg')
+            .page-blocks__big-title(data-span-entry3) Дизайн місць загального користування продовжує загальну концепцію ЖК NEBOS'HILL
+            a(href="#").page-blocks__hall-logo
+
           .half-block.top-padding-blocks.half-right-block
-            .page-blocks__text М'які та благородні відтінки, стилістичні рішення, якісні екологічні матеріали, що застосовуються у оздобленні, створюють камерну атмосферу для мешканців та гостей комплексу
+            .page-blocks__text(data-span-entry3) М'які та благородні відтінки, стилістичні рішення, якісні екологічні матеріали, що застосовуються у оздобленні, створюють камерну атмосферу для мешканців та гостей комплексу
 
         .row-block.blocks-top-shift
           .half-block.half-left-block
-            .page-blocks__text Лоббі - саме ця частина простору стає тим першим моментом, завдяки якому складається перше враження про будинок, про статус, про загальну дизайн-концепцію
+            .page-blocks__text(data-span-entry3) Лоббі - саме ця частина простору стає тим першим моментом, завдяки якому складається перше враження про будинок, про статус, про загальну дизайн-концепцію
           +img('hall/2.png').right-block-img
 
         .blocks-top-shift
           .half-block.half-right-block
-            .page-blocks__big-text Інтер'єр лобі — немов перше знайомство, своєрідна візитна карта всього будинку
+            .page-blocks__big-text(data-span-entry3) Інтер'єр лобі — немов перше знайомство, своєрідна візитна карта всього будинку
 
           .row-block.top-padding-blocks.blocks-left-shift.blocks-right-shift
             .hall_img-block__wrapper
               each img in images
-                +img(img)
+                .hall-images
+                  +img(img)
 
           .half-block.half-right-block.top-padding-blocks
-            .page-blocks__text Ми впевнені, що вашим першим враженням від NEBOS'HILL стане відчуття затишку та естетики, яке з'явиться одразу при вході до будівлі. Тут ваші гості нізащо не нудьгують, навіть якщо їм доведеться трохи зачекати на вас
+            .page-blocks__text(data-span-entry3) Ми впевнені, що вашим першим враженням від NEBOS'HILL стане відчуття затишку та естетики, яке з'явиться одразу при вході до будівлі. Тут ваші гості нізащо не нудьгують, навіть якщо їм доведеться трохи зачекати на вас
 
 
 block footer

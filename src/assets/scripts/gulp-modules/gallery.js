@@ -29,7 +29,7 @@ function sideSwitchArrow(swiper, arrowArgs, conArgs) {
     container.addEventListener('mouseleave', () => {
         arrow.hide();
     });
-    if (document.documentElement.clientWidth < 769) {
+    if (document.documentElement.clientWidth < 1024) {
         window.removeEventListener('mousemove', desktopNavButtonHandler);
         arrow.remove();
     }
@@ -40,7 +40,7 @@ function sideSwitchArrow(swiper, arrowArgs, conArgs) {
 
         // arrow.style.transform = `translate3d(${evt.clientX}px, ${evt.clientY}px, 0)`;
         getCursorSide(evt.clientX);
-        handleArrowVisibility(evt);
+        // handleArrowVisibility(evt);
     }
 
     function getCursorSide(x) {
@@ -55,7 +55,7 @@ function sideSwitchArrow(swiper, arrowArgs, conArgs) {
     container.addEventListener('click', () => {
         switchGallerySlide(arrow.dataset.side);
     });
-    if (document.documentElement.clientWidth < 576) {
+    if (document.documentElement.clientWidth < 1024) {
         container.removeEventListener('click', clickToChange);
     }
     const navigate = {
@@ -82,11 +82,10 @@ const slider = new Swiper('.swiper-container', {
     preloadImages: false,
     lazy: true,
     speed: 400,
-    // autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false,
-    //     waitForTransition: false,
-    // },
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
     watchSlidesVisibility: true,
 });
 

@@ -24,10 +24,13 @@ block scripts
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/map.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #contacts
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
     .contacts__wrapper
       .contacts__wrapper-left
         .contacts-info-left

@@ -2,16 +2,25 @@
   height: 100vh;
   width: 100vw;
 
-  background: $main-bcg;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include to(1024px) {
+    flex-direction: column;
+  }
 }
 
 .popup__close-wrapper {
   height: 100vh;
   width: 20%;
-  background: $popup-close;
+
+  @include to(1024px) {
+    background: transparent;
+    width: 100%;
+    height: auto;
+    position: absolute;
+  }
 
   .popup__close {
     @include hover-background($dgrc);
@@ -20,6 +29,20 @@
     width: 130px;
     background: $hc;
     float: right;
+
+    @include to(1600px) {
+      height: 100px;
+      width: 100px;
+    }
+
+    @include to(1024px) {
+      float: left;
+    }
+
+    @include to(575px) {
+      height: 70px;
+      width: 70px;
+    }
 
     span {
       content: '';
@@ -34,6 +57,10 @@
 
       &:nth-child(2){
         transform: translate(50%, -50%) rotate(-45deg);
+      }
+
+      @include to(575px) {
+        width: 15px;
       }
     }
   }

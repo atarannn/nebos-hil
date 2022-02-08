@@ -1,0 +1,108 @@
+.page-404 {
+  .page__inner:before {
+    content: none;
+  }
+
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+
+  .link-wrap {
+    @include to(575px) {
+      .header__btn {
+        width: 200px;
+        background: $dgrc;
+        margin-right: 0;
+        border-radius: 200px;
+
+        span {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.page404-wrap {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.page404__title {
+  font-size: 400px;
+  line-height: 80%;
+
+  @include to(1600px) {
+    font-size: 300px;
+  }
+
+  @include to(1024px) {
+    font-size: 250px;
+  }
+
+  @include to(575px) {
+    font-size: 150px;
+  }
+}
+
+.page404__text {
+  @include open-thin-text(18px, $hc, left);
+  line-height: 160%;
+  margin-top: 40px;
+
+  @include to(1600px) {
+    font-size: 14px;
+  }
+}
+
+.link-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 40px;
+
+  @include to(575px) {
+    flex-direction: column;
+  }
+
+  .button-style {
+    &:first-child {
+      margin-right: 40px;
+
+      @include to(575px) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+
+  }
+}

@@ -1,5 +1,26 @@
+.page-free_time {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
 #free_time {
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom-3);
   }
 }

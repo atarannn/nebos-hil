@@ -88,6 +88,22 @@ $screen-height: 720;
 	color: $text-color;
 }
 
+@mixin open-light-text ($font-size: 15px, $text-color: $wc, $text-align: center, $line-height: 100%){
+	font-family: $default-font4;
+	font-size: $font-size;
+	font-style: normal;
+	font-weight: 300;
+
+	text-align: $text-align;
+	line-height: $line-height;
+	letter-spacing: 0.01em;
+
+	text-transform: none;
+	text-decoration: none;
+
+	color: $text-color;
+}
+
 @mixin tenor-text ($font-size: 40px, $text-color: $dgrc){
 	font-family: $default-font;
 	font-size: $font-size;
@@ -117,6 +133,13 @@ $screen-height: 720;
 	justify-content: center;
 
 	@include open-text;
+
+	@include to(1600px) {
+		font-size: 11px;
+	}
+	@include to(575px) {
+		font-size: 10px;
+	}
 }
 
 @mixin menu-underline {
@@ -146,8 +169,10 @@ $screen-height: 720;
 @mixin hover-underline ($color: $wc){
 	position: relative;
 
-	&:hover:after {
-		width: 100%;
+	@include from(1024px) {
+		&:hover:after {
+			width: 100%;
+		}
 	}
 
 	&:after {
@@ -180,10 +205,12 @@ $screen-height: 720;
 		transition: transform .3s ease-in-out;
 	}
 
-	&:hover{
-		&:before {
-			transform: translateY(0);
-			transition: transform .3s ease-in-out;
+	@include from(1024px) {
+		&:hover{
+			&:before {
+				transform: translateY(0);
+				transition: transform .3s ease-in-out;
+			}
 		}
 	}
 }
@@ -219,8 +246,10 @@ $screen-height: 720;
 	transition: fill .3s ease-in-out;
 	cursor: pointer;
 
-	&:hover {
-		fill: $dgrc;
-		transition: fill .3s ease-in-out;
+	@include from(1024px) {
+		&:hover {
+			fill: $dgrc;
+			transition: fill .3s ease-in-out;
+		}
 	}
 }

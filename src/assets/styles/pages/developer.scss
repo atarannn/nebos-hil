@@ -1,5 +1,26 @@
+.page-developer {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
 #developer {
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom-3);
   }
 }
@@ -16,9 +37,36 @@
     width: 10px;
     margin-left: 15px;
   }
+
+  @include to(1600px) {
+    font-size: 13px;
+    margin-top: 30px;
+
+    .link__arrow{
+      height: 9px;
+      width: 6px;
+    }
+  }
+
+  @include to(1024px) {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+
+  @include to(575px) {
+    margin-top: 30px;
+  }
 }
 
 .top-block-row {
   @include row-flex;
+  flex-wrap: nowrap;
   padding-right: var(--margin);
+
+  @include to(575px) {
+    flex-direction: column;
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    padding-right: 0;
+  }
 }

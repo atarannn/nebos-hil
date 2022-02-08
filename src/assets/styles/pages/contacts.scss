@@ -1,7 +1,28 @@
+.page-contacts {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
 #contacts {
   margin-bottom: var(--page-bottom-margin);
 
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom-2);
   }
 }
@@ -15,15 +36,39 @@
   &-left, &-right {
     @include d-flex(flex-start);
     height: 100%;
+
+    @include to(575px) {
+      flex-direction: column;
+    }
   }
 
   &-left {
     margin-left: var(--margin);
     width: calc(50% - (var(--margin)));
+
+    @include to(1024px) {
+      width: 100%;
+      margin-left: 0;
+      padding-right: var(--margin);
+      padding-left: var(--margin);
+      padding-bottom: 50px;
+    }
+
+    @include to(575px) {
+      padding-bottom: 30px;
+    }
   }
 
   &-right {
     width: 50%;
+
+    @include to(1024px) {
+      width: 100%;
+    }
+  }
+
+  @include to(1024px) {
+    flex-direction: column;
   }
 }
 
@@ -34,10 +79,34 @@
 #map {
   width: 960px;
   height: 540px;
+
+  @include to(1600px) {
+    height: 335px;
+    width: 685px;
+  }
+
+  @include to(1024px) {
+    width: 100%;
+    height: 600px;
+  }
+
+  @include to(575px) {
+    height: 420px;
+  }
 }
 
 .contacts-info-left, .contacts-info-right {
-    width: 50%;
+  width: 50%;
+
+  @include to(575px) {
+    width: 100%;
+  }
+}
+
+@include to(575px) {
+  .contacts-info-left {
+    margin-bottom: 30px;
+  }
 }
 
 .contacts-info__block {
@@ -45,14 +114,44 @@
   flex-direction: column;
   margin-bottom: 40px;
 
+  @include to(1024px) {
+    margin-bottom: 30px;
+  }
+
+  @include to(575px) {
+    margin-bottom: 20px;
+  }
+
   &-title {
     @include open-thin-text(14px, $hc);
     text-transform: uppercase;
+
+    @include to(1600px) {
+      font-size: 11px;
+    }
+
+    @include to(575px) {
+      font-size: 10px;
+    }
   }
 
   &-text {
     @include open-thin-text(24px, $dgrc, left, 140%);
     margin-top: 15px;
+
+    @include to(1600px) {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    @include to(1024px) {
+      font-size: 16px;
+      max-width: 70%;
+    }
+
+    @include to(575px) {
+      max-width: 100%;
+    }
   }
 
   &-btn {
@@ -69,16 +168,30 @@
       text-transform: uppercase;
       transition: color .3s ease-in-out;
       z-index: 20;
+
+      @include to(1600px) {
+        font-size: 11px;
+      }
+
+      @include to(575px) {
+        font-size: 10px;
+      }
     }
 
-    &:hover {
-      border: 1px solid $hc;
-      transition: border .3s ease-in-out;
+    @include  from(1024px) {
+      &:hover {
+        border: 1px solid $hc;
+        transition: border .3s ease-in-out;
 
-      span{
-        @include open-thin-text(14px, $wc, center, 130%);
-        text-transform: uppercase;
-        transition: color .3s ease-in-out;
+        span{
+          @include open-thin-text(14px, $wc, center, 130%);
+          text-transform: uppercase;
+          transition: color .3s ease-in-out;
+
+          @include to(1600px) {
+            font-size: 11px;
+          }
+        }
       }
     }
   }
@@ -96,5 +209,14 @@
     @include open-thin-text(24px, $dgrc, left, 140%);
     margin-top: 15px;
     @include hover-underline(&dgrc);
+
+    @include to(1600px) {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    @include to(1024px) {
+      font-size: 16px;
+    }
   }
 }

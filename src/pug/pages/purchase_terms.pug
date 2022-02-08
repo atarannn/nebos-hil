@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Умови придбання'
     var id_page = 'id-page-purchase_terms'
-    var class_page = 'class-page-purchase_terms'
+    var class_page = 'page-purchase_terms'
     var breadcrumbsSubitem = [
       {
         label: 'Умови придбання',
@@ -36,10 +36,13 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/purchase_terms.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #purchase_terms
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       .purchase_terms
@@ -48,9 +51,9 @@ block content
         .page-blocks
           .top-block__wrapper
             .half-big-block.blocks-left-shift
-              .page-blocks__big-text Якщо ви вже визначилися з бажаним поверхом та плануванням майбутної квартири, саме час дізнатися про умови  придбання житла вашої мрії
+              .page-blocks__big-text(data-span-entry3) Якщо ви вже визначилися з бажаним поверхом та плануванням майбутної квартири, саме час дізнатися про умови  придбання житла вашої мрії
             .half-block.top-padding-blocks-2.half-right-block
-              .page-blocks__text У відділі продажів ви отримаете  повну інформацію про проект, ознайомитеся з дозвільною документацією та варіантами розрахунку:
+              .page-blocks__text(data-span-entry3) У відділі продажів ви отримаете  повну інформацію про проект, ознайомитеся з дозвільною документацією та варіантами розрахунку:
 
           .swiper-container.blocks-top-shift.slider-block__wrapper
             .swiper-wrapper.slider-block
@@ -62,7 +65,7 @@ block content
 
           .purchase_terms-info.blocks-top-shift
             .half-big-block.half-left-block
-              .page-blocks__title Розстрочка від забудовника
+              .page-blocks__title(data-span-entry3) Розстрочка від забудовника
             .purchase_terms-info-row__wrapper.top-padding-blocks-2
               ul.purchase_terms-info-row
                  each pi in purchaseInfo
@@ -70,27 +73,28 @@ block content
                     span.purchase_terms-info__num= pi.num
                     .purchase_terms-info__text.page-blocks__text= pi.text
               .half-block.top-padding-blocks.half-right-block
-                .page-blocks__text Це зручний варіант для тих, хто вже зараз хоче придбати житло та розподілити виплати на тривалий термін
+                .page-blocks__text(data-span-entry3) Це зручний варіант для тих, хто вже зараз хоче придбати житло та розподілити виплати на тривалий термін
 
           .row-block.blocks-top-shift.position-relative
             .half-block.half-left-block.position-absolute__text
-              .page-blocks__big-text Особливо вигідна купівля нерухомості у жк NEBOS'HILL на початкових етапах будівництва
-              .page-blocks__text Ми встановили дуже приємні ціни та пропонуємо вам великий вибір планувань. Після вибору квартири ми укладаємо з вами договір і ви вносите початковий платіж або 100% оплату
+              .page-blocks__big-text.mobile-padding(data-span-entry3) Особливо вигідна купівля нерухомості у жк NEBOS'HILL на початкових етапах будівництва
+              .page-blocks__text(data-span-entry3) Ми встановили дуже приємні ціни та пропонуємо вам великий вибір планувань. Після вибору квартири ми укладаємо з вами договір і ви вносите початковий платіж або 100% оплату
             +img('purchase_terms/2.png').right-block-img
 
           .top-block__wrapper.blocks-top-shift
             .half-block.half-right-block
-              .page-blocks__text Детальніше про умови придбання вам розкажуть наші менеджери відділу продажу
+              .page-blocks__text(data-span-entry3) Детальніше про умови придбання вам розкажуть наші менеджери відділу продажу
             .half-big-block.blocks-left-shift.top-padding-blocks
-              .page-blocks__big-text
+              .page-blocks__big-text(data-span-entry3)
                 p Телефонуйте за номером
                 a(href="tel:0675320001").purchase_terms-link
                   span + 38 (067) 523-00-01
                 | або надсилайте заявку на сайті, ми обов’язково з вами зв’яжемося
-              a(data-open-call-popup).page-blocks__links
-                span замовити дзвінок
-                .link__arrow
-                  +svg('arrow-green')
+              .div(data-span-entry3)
+                a(data-open-call-popup).page-blocks__links
+                  span замовити дзвінок
+                  .link__arrow
+                    +svg('arrow-green')
 
 
 block footer

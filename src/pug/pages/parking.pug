@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Паркінг'
     var id_page = 'id-page-parking'
-    var class_page = 'class-page-parking'
+    var class_page = 'page-parking'
     var breadcrumbsSubitem = [
       {
         label: 'Паркінг',
@@ -29,10 +29,14 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/purchase_terms.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #parking
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
+
 
     .content-wrapper
       +img('parking/1.png').main-page-img
@@ -40,23 +44,23 @@ block content
       .page-blocks
         .top-block__wrapper
           .half-block.half-right-block
-            .page-blocks__big-text Якщо ви вже визначилися з бажаним поверхом та плануванням майбутної квартири, саме час дізнатися про умови  придбання житла вашої мрії
+            .page-blocks__big-text(data-span-entry3) Якщо ви вже визначилися з бажаним поверхом та плануванням майбутної квартири, саме час дізнатися про умови  придбання житла вашої мрії
           .row-block.top-padding-blocks-2
             .half-block.half-left-block
-              .page-blocks__text У проекті ЖК NEBOS'HILL заплановано дворівневий підземний паркінг на 244 паркомісця, половина з яких має можливість заряджання електромобілів
+              .page-blocks__text(data-span-entry3) У проекті ЖК NEBOS'HILL заплановано дворівневий підземний паркінг на 244 паркомісця, половина з яких має можливість заряджання електромобілів
             +img('parking/2.png').right-block-img
 
         .blocks-top-shift
           .half-big-block.half-left-block
-            .page-blocks__title При покупці кожен покупець має можливість вибору
+            .page-blocks__title(data-span-entry3) При покупці кожен покупець має можливість вибору
           .half-block.half-right-block.top-padding-blocks-2
-            .page-blocks__text Обирайте одне з двох типів місць для паркування залежно від своїх потреб
+            .page-blocks__text(data-span-entry3) Обирайте одне з двох типів місць для паркування залежно від своїх потреб
           .parking-block-img__wrapper
             .parking-block-img(style="background-image: url('./assets/images/parking/3.png')")
 
         .blocks-top-shift
           .top-block-row.blocks-left-shift
-            .page-blocks__big-title DM GROUP — велика родина однодумців. Кожен день ми намагаємось бути ще кращими для вас
+            .page-blocks__big-title(data-span-entry3) DM GROUP — велика родина однодумців. Кожен день ми намагаємось бути ще кращими для вас
 
           .swiper-container.top-padding-blocks.slider-block__wrapper
             .swiper-wrapper.slider-block
@@ -67,7 +71,7 @@ block content
 
         .blocks-top-shift
           .half-big-block.half-right-block.blocks-right-shift
-            .page-blocks__big-text Підземний паркінг – найкраще рішення для тих, хто цінує комфорт та піклується про свій автомобіль
+            .page-blocks__big-text(data-span-entry3) Підземний паркінг – найкраще рішення для тих, хто цінує комфорт та піклується про свій автомобіль
 
 block footer
   include ../includes/footer.pug

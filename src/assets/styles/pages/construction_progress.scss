@@ -1,16 +1,52 @@
+.page-construction_progress {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
+$slider-width: 250px;
+
 #const_progress {
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom);
   }
 
   .const_progress__cards-wrapper {
     position: relative;
+
+    @include to(575px) {
+      margin-bottom: var(--page-bottom-margin);
+    }
   }
 
   .const_progress__cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 60px;
+
+    @include to(1024px) {
+      grid-column-gap: 25px;
+    }
+
+    @include to(575px) {
+      grid-template-columns: 1fr;
+      grid-column-gap: 0;
+    }
   }
 
   .work-status {
@@ -22,10 +58,41 @@
     top: 0;
     left: 0;
 
+    @include to(1024px) {
+      position: static;
+      margin-bottom: 30px;
+    }
+
+    @include to(575px) {
+      margin-bottom: 25px;
+    }
+
     .svg-wrapper{
       position: relative;
       height: 65px;
       width: 65px;
+
+      @include to(1600px) {
+        height: 50px;
+        width: 50px;
+      }
+
+      @include to(575px) {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .status-load {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include to(575px) {
+        height: 12px;
+        width: 12px;
+      }
     }
 
     .btn-circle {
@@ -50,42 +117,84 @@
       margin-left: 20px;
       @include open-thin-text(14px, $dgrc);
       text-transform: uppercase;
-    }
 
-    //&:hover {
-    //  .circle {
-    //    stroke-dasharray: 1000;
-    //  }
-    //}
+      @include to(1600px) {
+        font-size: 11px;
+      }
+
+      @include to(575px) {
+        font-size: 10px;
+        margin-left: 10px;
+      }
+    }
   }
 
   .card {
     width: 100%;
+
 
     &:nth-child(even) {
       transform: translateY(70%);
       display: flex;
       justify-content: flex-start;
       margin-bottom: 35%;
+
+      @include to(575px) {
+        margin-bottom: 70px;
+        transform: none;
+        justify-content: center;
+      }
+
     }
 
     &:nth-child(odd) {
       display: flex;
       justify-content: flex-end;
+
+      @include to(575px) {
+        margin-bottom: 70px;
+        justify-content: center;
+      }
     }
 
     &:last-child:not(:nth-child(odd)) {
       margin-bottom: 100%;
+
+      @include to(575px) {
+        margin-bottom: 70px;
+      }
     }
 
     &:last-child:not(:nth-child(even)) {
       margin-bottom: 35%;
+
+      @include to(575px) {
+        margin-bottom: 0;
+      }
     }
 
     &__wrapper {
       position: relative;
       height: 640px;
       width: 530px;
+
+      cursor: pointer;
+
+
+      @include to(1600px) {
+        height: 560px;
+        width: 382px;
+      }
+
+      @include to(1024px) {
+        height: 460px;
+        width: 332px;
+      }
+
+      @include to(575px) {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 
@@ -94,30 +203,67 @@
     position: absolute;
     left: 0;
     top: -5px;
+
+    @include to(1600px) {
+      font-size: 70px;
+      top: 5px;
+    }
   }
 
   .card__month {
     @include open-thin-text(16px, $hc, right);
     text-transform: uppercase;
     line-height: 300%;
+
+    @include to(1600px) {
+      font-size: 13px;
+    }
+
+    @include to(575px) {
+      font-size: 12px;
+    }
   }
 
   .card__text {
     padding-top: 20px;
     @include open-thin-text(18px, $hc, left);
     line-height: 160%;
+
+    @include to(1600px) {
+      font-size: 14px;
+      padding-top: 10px;
+    }
   }
 
   .card-img {
     object-fit: cover;
     height: 640px;
     width: auto;
+
+    @include to(1600px) {
+      height: 460px;
+    }
+
+    @include to(1024px) {
+      height: 400px;
+    }
+
+    @include to(575px) {
+      height: auto;
+    }
   }
 }
 
 .popup-info {
   width: 80%;
+  height: 100%;
   @include d-flex;
+  background: $main-bcg;
+
+  @include to(1024px) {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
 }
 
 .build-info {
@@ -129,9 +275,36 @@
     flex-direction: column;
     justify-content: center;
 
+    @include to(1024px) {
+      height: 50vh;
+      margin-left: 0;
+      width: 450px;
+      justify-content: flex-start;
+      margin-top: 50px;
+    }
+
+    @include to(575px) {
+      width: 100%;
+      margin-top: 30px;
+      padding-left: var(--margin);
+      padding-right: var(--margin);
+    }
+
     &-date {
       @include tenor-text(100px, $dgrc);
       margin-bottom: var(--menu-margin2);
+
+      @include to(1600px) {
+        font-size: 70px;
+      }
+
+      @include to(1024px) {
+        font-size: 50px;
+      }
+
+      @include to(575px) {
+        font-size: 45px;
+      }
     }
 
     &-description {
@@ -143,8 +316,22 @@
       overflow-y: scroll;
       overflow-x: hidden;
 
+      @include to(1600px) {
+        font-size: 14px;
+      }
+
+      @include to(1024px) {
+        font-size: 12px;
+        height: 250px;
+      }
+
+      @include to(575px) {
+        width: 100%;
+      }
+
       & li {
         margin-top: 20px;
+        margin-right: 10px;
         margin-left: 30px;
         list-style-type: disc;
       }
@@ -164,26 +351,63 @@
       width: 90%;
       height: var(--const-prog-h);
     }
+
+    @include to(1024px) {
+      height: 50vh;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-end;
+
+      iframe {
+        width: 450px;
+      }
+    }
+
+    @include to(575px) {
+      iframe {
+        width: 100%;
+        margin-left: var(--margin);
+        margin-right: var(--margin);
+      }
+    }
   }
 }
 
 
 .status__wrapper {
   padding-left: var(--const-prog-margin);
+
+  @include to(1024px)  {
+    flex-direction: row;
+    height: 100%;
+  }
 }
 
 .status {
   @include d-flex(flex-start);
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 
   &__title {
     @include tenor-text(100px, $dgrc);
+
+    @include to(1600px) {
+      font-size: 70px;
+    }
+
+    @include to(1024px) {
+      font-size: 50px;
+    }
+
+    @include to(575px) {
+      font-size: 45px;
+    }
   }
 
   .statuses-wrapper {
     display: flex;
-    max-width: 65%;
+    max-width: 100%;
     overflow-x: scroll;
     scroll-behavior: smooth;
     overflow-y: hidden;
@@ -191,11 +415,28 @@
     margin-top: 80px;
     padding-top: var(--status-padding);
 
+
     &::-webkit-scrollbar {
       height: 2px;
     }
     &::-webkit-scrollbar-thumb {
       -webkit-box-shadow: inset 0 0 6px black;
+    }
+
+    @include to(1600px) {
+      margin-top: 77px;
+    }
+
+    @include to(1024px) {
+      margin-top: 55px;
+    }
+
+    @include to(820px) {
+      margin-top: 55px;
+    }
+
+    @include to(575px) {
+      margin-top: 40px;
     }
 
     .status {
@@ -205,7 +446,19 @@
       padding-top: 30px;
       padding-bottom: 50px;
       white-space: nowrap;
-      width: 100%;
+
+      @include to(1600px) {
+        font-size: 13px;
+        padding-top: 23px;
+      }
+
+      @include to(1024px) {
+        padding-bottom: 43px;
+      }
+
+      @include to(575px) {
+        font-size: 12px;
+      }
 
       &:before {
         content: '';
@@ -224,7 +477,12 @@
       }
 
       & span:last-child {
-        width: 240px;
+        width: auto;
+        margin-right: 80px;
+
+        @include to(1600px) {
+          margin-right: 50px;
+        }
       }
 
       &.active {
@@ -260,13 +518,33 @@
     @include d-flex;
     margin-bottom: 80px;
 
+    @include to(1600px) {
+      margin-bottom: 60px;
+    }
+
+    @include to(1024px) {
+      margin-bottom: 40px;
+    }
+
     & span {
       & svg {
         @include hover-arrow;
+
+        @include to(1600px) {
+          width: 42px;
+        }
+
+        @include to(575px) {
+          width: 33px;
+        }
       }
 
       &:first-child {
         margin-right: 40px;
+
+        @include to(575px) {
+          margin-right: 20px;
+        }
       }
 
       &:last-child svg{
@@ -279,10 +557,23 @@
     @include d-flex(flex-start);
     flex-direction: column;
     justify-content: center;
-    width: 30%;
+    width: 50%;
+
+    @include to(575px) {
+      width: 100%;
+      padding-right: var(--margin);
+    }
 
     &__title {
       @include tenor-text(40px, $dgrc);
+
+      @include to(1600px) {
+        font-size: 30px;
+      }
+
+      @include to(575px) {
+        font-size: 20px;
+      }
     }
 
     &__date {
@@ -292,11 +583,24 @@
       display: flex;
       flex-direction: column;
       margin: 20px 0;
+
+      @include to(1600px) {
+        font-size: 13px;
+      }
+
+      @include to(575px) {
+        font-size: 12px;
+        margin: 15px 0;
+      }
     }
 
     &__text {
       @include open-thin-text(16px, $gc-text);
       line-height: 160%;
+
+      @include to(1600px) {
+        font-size: 14px;
+      }
     }
   }
 }

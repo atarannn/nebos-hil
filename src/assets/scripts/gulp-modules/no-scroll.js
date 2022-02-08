@@ -1,4 +1,5 @@
 locoScroll.destroy();
+document.querySelector('.page__inner').classList.add('no-transform');
 setTimeout(() => {
     document.querySelector('.page__inner').style.transform = '';
 }, 0)

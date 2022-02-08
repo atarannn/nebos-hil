@@ -1,3 +1,79 @@
+.preloader {
+  z-index: 100000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  pointer-events: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/mramor.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+  opacity: 1;
+  cursor: none;
+
+  .preloader__image {
+    max-width: 80vw;
+    min-width: 300px;
+    animation: pulse 2s ease-in-out both;
+
+    @media screen and (max-width: 575px) {
+      width: 250px;
+      min-width: 220px;
+    }
+  }
+}
+.loaded_hiding .preloader {
+  //opacity: 0;
+  visibility: hidden;
+  transition: 1s visibility;
+}
+
+.loaded .preloader{
+  display: none;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(.8, .8, .8);
+    transform: scale3d(.8, .8, .8);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(.8, .8, .8);
+    transform: scale3d(.8, .8, .8);
+  }
+}
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(.8, .8, .8);
+    transform: scale3d(.8, .8, .8);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(.8, .8, .8);
+    transform: scale3d(.8, .8, .8);
+  }
+}
+
 .header.not-on-top {
   background: $main-bcg;
   border-bottom: 1px solid;
@@ -8,7 +84,7 @@
   .header__logo {
     height: var(--header-h-2);
 
-    img {
+    .first-logo {
       opacity: 0;
       transition: opacity .2s linear;
     }
@@ -20,30 +96,30 @@
   }
 }
 
-.second-header__call {
-  @include open-text(14px, $dgrc);
-  @include hover-underline($dgrc);
-}
-
-.second-burger__name {
-  @include open-text(14px, $dgrc);
-}
-
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 3;
+  z-index: 100;
   height: var(--header-h);
   width: 100%;
   transition: height .3s linear;
+
 
   @include d-flex;
   justify-content: space-between;
 
   .header__tell{
     font-size: 18px;
+
+    @include to(1600px) {
+      font-size: 14px;
+    }
+
+    @include to(1024px) {
+      display: none;
+    }
   }
 
   &__left {
@@ -53,6 +129,11 @@
     height: 100%;
     margin-left: var(--margin);
     margin-right: var(--margin);
+
+    @include to(1024px) {
+      width: 100%;
+      margin-right: 0;
+    }
   }
 
   &__logo {
@@ -65,9 +146,10 @@
     position: relative;
     transition: height 0.3s linear;
 
-    img {
+    .first-logo, .mobile-logo {
       opacity: 1;
       transition: opacity .2s linear;
+      object-fit: contain;
 
       height: var(--logo-h);
 
@@ -77,11 +159,20 @@
       transform: translateY(-50%);
     }
 
+    .mobile-logo {
+      display: none;
+
+      @include to(575px) {
+        display: block;
+      }
+    }
+
     .second-logo{
       opacity: 0;
       transition: opacity .2s linear;
 
       height: var(--logo-2-h);
+      object-fit: contain;
 
       position: absolute;
       left: 0;
@@ -93,6 +184,35 @@
   &__btn {
     @include btn-style;
     @include hover-background($hc);
+
+    @include to(1024px) {
+      margin-left: auto;
+      margin-right: 30px;
+    }
+
+    @include to(575px) {
+      margin-right: 15px;
+      border-radius: 100%;
+      width: auto;
+      background: transparent;
+    }
+
+    span {
+      @include to(575px) {
+        display: none;
+      }
+    }
+
+    svg {
+      display: none;
+      height: 40px;
+      width: 40px;
+
+      @include to(575px) {
+        display: flex;
+      }
+    }
+
   }
 
   &__right {
@@ -102,11 +222,28 @@
     height: 100%;
     margin-left: var(--margin);
     margin-right: var(--margin);
+
+    @include to(1024px) {
+      width: auto;
+      margin-left: 30px;
+    }
+
+    @include to(575px) {
+      margin-left: 15px;
+    }
   }
 
   &__call {
     @include open-text;
     @include hover-underline;
+
+    @include to(1600px) {
+      font-size: 11px;
+    }
+
+    @include to(1024px) {
+      display: none;
+    }
   }
 
   .burger {
@@ -116,6 +253,15 @@
     &__name {
       margin-right: 15px;
       @include open-text;
+
+      @include to(1600px) {
+        font-size: 11px;
+        margin-right: 10px;
+      }
+
+      @include to(1024px) {
+        display: none;
+      }
     }
 
     &__icon {
@@ -126,13 +272,25 @@
       width: 65px;
       @include animation-circle;
 
-      &__line {
+      @include to(1600px) {
+        height: 50px;
+        width: 50px;
+      }
+
+      @include to(575px) {
+        height: 40px;
+        width: 40px;
+      }
+
+      &__line-wrapper {
         position: absolute;
         top: 50%;
         right: 50%;
         transform: translate(50%, -50%);
-        z-index: 20;
+        z-index: 100;
+      }
 
+      &__line {
         display: flex;
         flex-direction: column;
         width: 15px;
@@ -140,8 +298,19 @@
         background: $dgrc;
         pointer-events: none;
 
-        &:last-child {
-          margin-top: 5px;
+        &:first-child {
+          margin-bottom: 4px;
+        }
+
+        @include to(1600px) {
+          width: 11px;
+
+          &:first-child {
+            margin-bottom: 3px;
+          }
+        }
+        @include to(575px) {
+          height: 1px;
         }
       }
     }
@@ -155,5 +324,121 @@
         }
       }
     }
+  }
+}
+
+.no-transform {
+  transform: none !important;
+}
+
+.button-phone {
+  display: none;
+  cursor: pointer;
+
+  svg {
+    height: 50px;
+    width: 50px;
+    fill: transparent;
+    stroke: $dgrc;
+
+    @include to(575px) {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  @include to(1024px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.form-header-call {
+  background: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  z-index: 102;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  //transition: opacity 0.4s ease-in-out;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-left: 88px;
+    padding-right: 88px;
+
+    @include to(575px) {
+      padding-right: 35px;
+      padding-left: 35px;
+    }
+
+    li {
+      width: 100%;
+      height: 60px;
+      background: $wc;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+
+
+      @include to(575px) {
+        height: 50px;
+      }
+
+
+      a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include open-light-text(15px, $dgrc, center, 100%);
+      }
+    }
+
+    li.cancel {
+      background: $dgrc;
+      @include open-light-text(15px, $main-bcg, center, 100%);
+    }
+  }
+}
+
+.sideform-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.first-logo {
+  @include to(575px) {
+    display: none;
+  }
+}
+
+.second-logo {
+  @include to(575px) {
+    display: none;
+  }
+}
+
+.mobile-log {
+  display: none;
+
+  @include to(575px) {
+    display: block;
   }
 }

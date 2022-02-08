@@ -1,35 +1,53 @@
 .menu {
   display: grid;
   height: 100%;
-  grid-template-columns: 5% 30% auto;
+  grid-template-columns: var(--margin) 32% auto var(--margin);
   grid-template-rows: auto 140px 1fr;
-  grid-template-areas: 'top top top'
-  '. . .'
-  '. left right';
+  grid-template-areas: 'top top top top'
+  '. . . .'
+  '. left right .';
+
+  @include to(1600px) {
+    grid-template-columns: var(--margin) 35% auto var(--margin);
+    grid-template-rows: auto 80px 1fr;
+  }
+
+  @include to(1024px) {
+    grid-template-rows: auto 60px 1fr;
+  }
+
+  @include to(820px) {
+    grid-template-columns: var(--margin) 33% auto var(--margin);
+  }
+
+  @include to(575px) {
+    grid-template-columns: var(--margin) 45% auto var(--margin);
+    grid-template-rows: auto 20px 1fr;
+  }
 
   &-wrap{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 101;
     width: 100%;
     height: 100%;
     background: $main-bcg;
     visibility: hidden;
-    pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
 
     &.active {
-      transition: opacity 0.5s ease-in, visibility 1ms linear;
       visibility: visible;
       opacity: 1;
-      pointer-events: painted;
     }
   }
 
   .header__tell{
     font-size: 18px;
+
+    @include to(1600px) {
+      font-size: 14px;
+    }
   }
 
   &__top {
@@ -52,16 +70,42 @@
     margin-right: var(--margin);
   }
 
+  @include to(1024px) {
+    &__left {
+      margin-right: 0;
+    }
+
+    &__right {
+      margin-left: 0;
+    }
+  }
+
+  @include to(575px) {
+    &__left {
+      width: 100%;
+    }
+
+    &__right {
+      width: auto;
+    }
+  }
+
   .vr-tour {
     @include d-flex;
     justify-content: flex-start;
+
+    @include to(575px) {
+      margin-right: 40px;
+    }
 
     &__icon {
       background: $dgrc;
       border-radius: 200px;
       height: 65px;
       width: 65px;
-      @include animation-circle($hc);
+      @include from(1024px) {
+        @include animation-circle($hc);
+      }
 
       @include d-flex;
       justify-content: center;
@@ -72,11 +116,41 @@
         fill: $wc;
         z-index: 20;
       }
+
+      @include to(1600px) {
+        height: 50px;
+        width: 50px;
+
+        svg {
+          height: 8px;
+          width: 7px;
+        }
+      }
+
+      @include to(575px) {
+        height: 40px;
+        width: 40px;
+
+        svg {
+          height: 7px;
+          width: 5px;
+        }
+      }
     }
 
     & span {
       @include open-text(14px, $dgrc);
       margin-left: 20px;
+
+      @include to(1600px) {
+        font-size: 11px;
+        margin-left: 10px;
+      }
+
+      @include to(575px) {
+        font-size: 10px;
+        margin-left: 5px;
+      }
     }
 
     &:hover .vr-tour__icon{
@@ -90,17 +164,29 @@
   .call a{
     @include open-text(14px, $dgrc);
     @include hover-underline($dgrc);
+
+    @include to(1600px) {
+      font-size: 11px;
+    }
   }
 
   .call-btn {
     @include btn-style;
     @include hover-background($hc);
+
+    @include to(1024px) {
+      display: none;
+    }
   }
 
   &__section {
 
     &-left {
       grid-area: left;
+
+      @include to(575px) {
+        padding-right: 25px;
+      }
     }
 
     &-big {
@@ -114,6 +200,14 @@
         a {
           @include tenor-text;
           @include hover-underline($dgrc);
+
+          @include to(1600px) {
+            font-size: 30px;
+          }
+
+          @include to(1024px) {
+            font-size: 18px;
+          }
         }
       }
     }
@@ -134,25 +228,63 @@
         }
       }
 
+      @include to(575px) {
+        margin-bottom: 30px;
+        overflow-y: scroll;
+
+      }
+
       &::-webkit-scrollbar {
         width: 0;
       }
 
       .menu__title {
         @include tenor-text;
+
+        @include to(1600px) {
+          font-size: 30px;
+        }
+
+        @include to(1024px) {
+          font-size: 18px;
+        }
       }
 
       ul {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         justify-content: flex-start;
 
         width: 100%;
-        margin-top: 20px;
+
+        @include to(575px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
         li {
           overflow: hidden;
           margin-right: var(--menu-right-margin);
+
+          margin-top: 20px;
+
+          @include to(1600px) {
+            margin-top: 15px;
+          }
+
+          @include to(1024px) {
+            margin-top: 20px;
+          }
+
+          @include to(575px) {
+            margin-right: 0;
+            margin-top: 15px;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
 
           a {
             display: inline-block;
@@ -160,6 +292,10 @@
 
             @include open-thin-text(18px, $gc-text);
             @include hover-underline($dgrc);
+
+            @include to(1600px) {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -170,9 +306,26 @@
     @include d-flex;
     cursor: pointer;
 
+    @include to(1024px) {
+      margin-left: 30px;
+    }
+
+    @include to(575px) {
+      margin-left: 15px;
+    }
+
     .menu__name {
       margin-right: 15px;
       @include open-text(14px, $dgrc);
+
+      @include to(1600px) {
+        font-size: 11px;
+        margin-right: 10px;
+      }
+
+      @include to(1024px) {
+        display: none;
+      }
     }
 
     &-icon {
@@ -187,6 +340,16 @@
       cursor: pointer;
 
       position: relative;
+
+      @include to(1600px) {
+        height: 50px;
+        width: 50px;
+      }
+
+      @include to(575px) {
+        height: 40px;
+        width: 40px;
+      }
 
       & span {
         position: absolute;
@@ -206,17 +369,32 @@
         &:nth-child(2) {
           transform: translate(-50%, -50%)rotate(-45deg);
         }
-      }
-    }
 
-    &:hover {
-      .menu__close-icon {
-        @include hover-animation-circle;
+        @include to(1600px) {
+          width: 12px;
+        }
 
-        & span {
-          background: $wc;
+        @include to(575px) {
+          width: 10px;
+          height: 1px;
         }
       }
     }
+
+    @include from(1024px) {
+      &:hover {
+        .menu__close-icon {
+          @include hover-animation-circle;
+
+          & span {
+            background: $wc;
+          }
+        }
+      }
+    }
+  }
+
+  .button-phone {
+    margin-left: auto;
   }
 }

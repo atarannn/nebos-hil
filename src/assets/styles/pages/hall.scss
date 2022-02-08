@@ -1,5 +1,26 @@
+.page-hall {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
 #hall {
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom-3);
   }
 }
@@ -9,7 +30,30 @@
   @include d-flex;
   justify-content: space-between;
 
-  & img {
+  @include to(575px) {
+    flex-direction: column;
+  }
+
+  .hall-images {
     @include size(2);
+
+    @include to(1600px) {
+      @include size-llg(2);
+    }
+
+    @include to(1024px) {
+      @include size-lg(2);
+    }
+
+    @include to(575px) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    &:last-child {
+      @include to(575px) {
+        margin-bottom: 0;
+      }
+    }
   }
 }

@@ -38,6 +38,8 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/three.js')
+  script(defer src='./assets/scripts/sketch.js')
   script(defer src='./assets/scripts/home.js')
 block content
   section.home-section-0
@@ -48,21 +50,26 @@ block content
             .swiper-wrapper
               each sl in slider
                   .swiper-slide.slide
-                      .slide__content(data-swiper-parallax="300" data-swiper-parallax-delay="600")
+                      .slide__content
                           .slide__content__left
-                              .slide__title= sl.title
-                              a(href= sl.url data-swiper-parallax="500").slide__link
+                              .slide__title=sl.title
+                              a(href= sl.url).slide__link
                                   span= sl.linkText
                                   .link__arrow
                                       +svg('arrow-green')
 
                           .slide__content__right
-                              .gradient-img
-                              +img(sl.img)
+                            .slide__content__right-img
+                                .gradient-img
+                                +img(sl.img)
+              .animation-for-slider
 
 
-        .home-slider__amount
-            span.home-slider__current.js-home-slider__current(data-current)
+        .gallery-slider__amount
+          .gallery-slider__current.js-slider__current(data-current)
+              span(data-first-digit)
+              span(data-second-digit)
+          span.slider__all.js-slider__all(data-total)
 
         .home-slider__arrows
             .home-slider__arrow.home-slider__prev(data-prev)

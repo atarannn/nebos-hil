@@ -3,8 +3,9 @@ footer#footer
         .footer-top
             .footer-top__left
                 a(href='tel:0675230001').tell + 38 (067) 523-00-01
-                a(href='#').call.button-style
+                a(data-open-call-popup).call.button-style
                     span замовити дзвінок
+                    +svg('phone')
             .footer-top__right
                 a(href="#").link
                     span Обрати квартиру

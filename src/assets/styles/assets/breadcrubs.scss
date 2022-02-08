@@ -16,21 +16,38 @@
       & a{
         @include open-thin-text(14px, $dgrc);
         text-transform: lowercase;
+
+        @include to(1600px) {
+          font-size: 11px;
+        }
+
+        @include to(575px) {
+          font-size: 10px;
+        }
       }
 
       span {
         margin-left: 10px;
         margin-right: 10px;
+
+        @include to(575px) {
+          margin-right: 5px;
+          margin-left: 5px;
+        }
       }
     }
 
     .breadcrumbs-item__active a{
       @include open-thin-text(14px, $hc);
       text-transform: lowercase;
-    }
-  }
 
-  &-title {
-    @include tenor-text(100px, $dgrc);
+      @include to(1600px) {
+        font-size: 11px;
+      }
+
+      @include to(575px) {
+        font-size: 10px;
+      }
+    }
   }
 }

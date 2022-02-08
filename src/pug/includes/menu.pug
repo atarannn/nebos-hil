@@ -17,7 +17,7 @@
   var menu3 = [
     ['Особливості', 'specials.html'],
     ['Локація', 'location.html'],
-    ['Тераси', ''],
+    ['Тераси', '404.html'],
     ['Паркінг', 'parking.html'],
     ['Хол', 'hall.html'],
     ['Дозвілля', 'free_time.html'],
@@ -31,16 +31,16 @@
     ['4-кімнатні', '']
   ]
   var menu5 = [
-    ['Контакти', 'contacts.html'],
-    ['Зворотній зв’язок', '']
+    ['Контакти', 'contacts.html']
   ];
 
-.menu-wrap(data-menu data-disable-page-scroll)
+.menu-wrap(data-menu)
   .menu
     .menu__top
       .menu__left
         a(href='index.html').header__logo
-          img(src="assets/images/logo.svg")
+          img(src="assets/images/logo.svg").first-logo
+          img(src="assets/images/logo-mob.svg").mobile-logo
 
         a(href="#").vr-tour
           .vr-tour__icon
@@ -48,6 +48,8 @@
           span vr-тур
 
       .menu__right
+        .button-phone.js-mobile-call
+          +svg('phone')
         .call(data-lang="mobile")
           a(data-open-call-popup).header__call замовити дзвінок
         .call-btn
@@ -66,30 +68,32 @@
         ul
           each el in menu1
             li
-              a(href=el[1] data-animation1)=el[0]
+              a(href=el[1] data-animation)=el[0]
 
     .menu__section-right
       .menu__section
-        .menu__title(data-animation2) Про проєкт
-        ul
+        .menu__title(data-animation1) Про проєкт
+        ul(data-animation2)
           each el in menu2
             li
-              a(href=el[1] data-animation2)= el[0]
+              a(href=el[1])= el[0]
       .menu__section
         .menu__title(data-animation3) Про Комплекс
-        ul
+        ul(data-animation4)
           each el in menu3
             li
-              a(href=el[1] data-animation3)= el[0]
+              a(href=el[1])= el[0]
       .menu__section
-        .menu__title(data-animation4) Квартири
-        ul
+        .menu__title(data-animation5) Квартири
+        ul(data-animation6)
           each el in menu4
             li
-              a(href=el[1] data-animation4)= el[0]
+              a(href=el[1])= el[0]
       .menu__section
-        .menu__title(data-animation5) Контакти
-        ul
+        .menu__title(data-animation7) Контакти
+        ul(data-animation8)
           each el in menu5
             li
-              a(href=el[1] data-animation5)= el[0]
+              a(href=el[1])= el[0]
+            li
+              a(data-open-call-popup) Зворотній зв’язок

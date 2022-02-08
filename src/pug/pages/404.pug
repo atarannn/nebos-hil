@@ -1,28 +1,34 @@
 extends ../layout/main
-	
+block variable
+	-
+		var class_page = 'page-404'
+
 block meta
 	title= '404'
 	meta(name='description', content='')
 block head
 		link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
-	script(src='./assets/scripts/index.js')
+	script(defer src='./assets/scripts/vendors.bundle.js')
+	script(defer src='./assets/scripts/index.bundle.js')
+	script(defer src='./assets/scripts/libs.js')
+	script(defer src='./assets/scripts/index.js')
+	script(defer src='./assets/scripts/header.js')
+	script(defer src='./assets/scripts/animation.js')
 
 block content
 	section(class="page404-wrap")
 		div(class="page404")
-			h1(class="page404__title") 404
-				span(class="page404__title-small") упс...
-			p(class="page404__subtitle") Что-то пошло не так, страница не найдена
-			div(class="link-wrap")
-				a(class="button-fill" onclick="window.history.go(-1);")
-					span.button-fill__text Назад
-				a(class="button-fill" href="/")
-					span.button-fill__text На главную
+			h1(class="page404__title page-title" data-span-entry1) 404
+			p(class="page404__text" data-span-entry1) Упс, щось пішло не так :(
 
-block footer
-	footer.footer
-		include ../includes/footer.pug
+			div(data-span-entry1)
+				div(class="link-wrap")
+					a(class="button-fill" onclick="window.history.go(-1);").contacts-info__block-btn.button-style
+						span.button-fill__text Повернутись назад
+					a(class="button-fill" href="index.html").header__btn.button-style
+						span.button-fill__text на головну
+
 
 block header
 	header.header

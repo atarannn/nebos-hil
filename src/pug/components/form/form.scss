@@ -2,29 +2,41 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 101;
   width: 100%;
   height: 100vh;
-  background: $main-bcg;
+  background: $popup-close;
   visibility: hidden;
-  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
 
-  &.active {
-    transition: opacity 0.5s ease-in, visibility 1ms linear;
-    visibility: visible;
-    opacity: 1;
-    pointer-events: painted;
+  @include to(1024px) {
+    background: transparent;
   }
+}
+
+.active-form {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1000;
 }
 
 .call-popup-close {
   width: 50%;
+
+  @include to(1024px) {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+  }
 }
 
 .call-popup-info{
   width: 50%;
+  background: $main-bcg;
+
+  @include to(1024px) {
+    width: 100%;
+  }
 }
 
 form {
@@ -38,6 +50,17 @@ form {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+
+  @include to(1024px) {
+    width: 100%;
+    padding-right: 160px;
+    padding-left: 160px;
+  }
+
+  @include to(575px) {
+    padding-left: var(--margin);
+    padding-right: var(--margin);
+  }
 }
 
 .not-active {
@@ -49,12 +72,22 @@ form {
 .form-title {
   @include tenor-text(100px, $dgrc);
   text-align: center;
-  margin-bottom: 60px;
+
+  @include to(1600px) {
+    font-size: 70px;
+  }
+
+  @include to(1024px) {
+    font-size: 50px;
+  }
+
+  @include to(575px) {
+    font-size: 45px;
+  }
 }
 
 .form-field:not(#t) {
   position: relative;
-  margin: 60px 0 0;
   background: none;
   border-bottom: 1px solid rgba(134, 137, 126, 0.25);
   transition: all 0.3s;
@@ -82,7 +115,22 @@ form {
   align-items: flex-end;
   width: 100%;
   height: 60px;
+  margin: 60px 0 0;
+
+  @include to(1600px) {
+    margin: 40px 0 0;
+    height: 35px;
+  }
+
+  @include to(1024px) {
+    margin: 50px 0 0;
+  }
+
+  @include to(575px) {
+    margin: 30px 0 0;
+  }
 }
+
 .form-field__input {
   @include open-thin-text(16px, $dgrc, left, 130%);
   text-transform: uppercase;
@@ -97,11 +145,22 @@ form {
   &:focus + .form-field-message {
     opacity: 1;
   }
+
+  @include to(1600px) {
+    font-size: 13px;
+    padding-bottom: 15px;
+  }
+
+  @include to(575px) {
+    font-size: 12px;
+    padding-bottom: 10px;
+  }
 }
 
 .home-content__link {
   background: $dgrc;
   border-radius: 200px;
+  border: none;
   height: 130px;
   width: 130px;
   margin-top: 60px;
@@ -110,18 +169,39 @@ form {
   @include d-flex;
   justify-content: center;
 
+  @include to(1600px) {
+    height: 100px;
+    width: 100px;
+  }
+
+  @include to(575px) {
+    width: 70px;
+    height: 70px;
+    margin-top: 30px;
+  }
+
   svg {
     height: 100%;
     width: 37px;
     transform: rotate(180deg);
     fill: $wc;
     z-index: 20;
+
+    @include to(1600px) {
+      width: 30px;
+    }
+
+    @include to(575px) {
+      width: 25px;
+    }
   }
 
-  &:hover {
-    @include hover-animation-circle;
-    & svg {
-      fill: $wc;
+  @include from(1024px) {
+    &:hover {
+      @include hover-animation-circle;
+      & svg {
+        fill: $wc;
+      }
     }
   }
 
@@ -157,6 +237,15 @@ form {
   padding-bottom: 20px;
   background-color: $main-bcg;
   display: block;
+
+  @include to(1600px) {
+    font-size: 13px;
+    padding-bottom: 15px;
+  }
+
+  @include to(575px) {
+    padding-bottom: 10px;
+  }
 }
 
 [data-animation="focus"] .form-field__input {
@@ -295,6 +384,18 @@ form {
   width: 100%;
   height: 40px;
   margin-top: 60px;
+
+  @include to(1600px) {
+    margin-top: 40px;
+  }
+
+  @include to(1024px) {
+    margin-top: 50px;
+  }
+
+  @include to(575px) {
+    margin-top: 30px;
+  }
 }
 
 .form-checkbox {
@@ -314,6 +415,20 @@ form {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  @include to(1600px) {
+    font-size: 10px;
+    padding-left: 47px;
+    width: 35%;
+  }
+
+  @include to(1024px) {
+    width: 40%;
+  }
+
+  @include to(575px) {
+    width: 55%;
+  }
 }
 
 /* Hide the browser's default checkbox */
@@ -336,6 +451,11 @@ form {
   border-radius: 200px;
   border: 1px solid rgba(134, 137, 126, 0.25);
   transition: background-color .3s ease-in-out;
+
+  @include to(1600px) {
+    height: 32px;
+    width: 32px;
+  }
 }
 
 /* On mouse-over, add a grey background color */
@@ -379,6 +499,12 @@ form {
   visibility: hidden;
   height: 100vh;
 
+  .form-title {
+    @include to(1024px) {
+      max-width: 80%;
+    }
+  }
+
   &.thanks-active {
     opacity: 1;
     visibility: visible;
@@ -394,5 +520,18 @@ form {
   .form-thanks-btn{
     @include btn-style;
     @include hover-background;
+    margin-top: 60px;
+
+    @include to(1600px) {
+      margin-top: 40px;
+    }
+
+    @include to(1024px) {
+      margin-top: 50px;
+    }
+
+    @include to(575px) {
+      margin-top: 30px;
+    }
   }
 }

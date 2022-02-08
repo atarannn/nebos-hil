@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Панорама'
     var id_page = 'id-page-panorama'
-    var class_page = 'class-page-panorama'
+    var class_page = 'page-panorama'
     var breadcrumbsSubitem = [
       {
         label: 'Панорама',
@@ -24,10 +24,14 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/panorama.js')
+  script(defer src='./assets/scripts/animation.js')
+
+
 block content
   #panorama
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       .panorama-wrapper(data-panorama-wrapper)

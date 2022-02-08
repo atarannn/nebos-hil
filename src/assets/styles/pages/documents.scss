@@ -1,5 +1,26 @@
+.page-documents {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
 #documents {
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom-2);
   }
 }
@@ -7,6 +28,10 @@
 .docs-wrapper {
   @include d-flex(flex-start);
   justify-content: space-between;
+
+  @include to(575px) {
+    flex-direction: column;
+  }
 }
 
 .docs-left-wrapper, .docs-right-wrapper {
@@ -16,11 +41,41 @@
 
   @include d-flex(flex-start);
   flex-direction: column;
+
+  @include to(575px) {
+    width: 100%;
+  }
+}
+
+.docs-right-wrapper {
+  @include to(575px) {
+    margin-top: 70px;
+  }
+}
+
+@include to(1024px) {
+  .docs-left-wrapper {
+    padding-right: 22px;
+  }
+
+  .docs-right-wrapper {
+    padding-left: 22px;
+  }
 }
 
 .docs__title{
   @include tenor-text(40px, $dgrc);
   margin-bottom: 50px;
+
+  @include to(1600px) {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  @include to(1024px) {
+    font-size: 20px;
+    margin-bottom: 23px;
+  }
 }
 
 .docs {
@@ -36,6 +91,21 @@
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(134, 137, 126, 0.25);
     cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    @include to(1600px) {
+      padding-bottom: 25px;
+      margin-top: 48px;
+    }
+
+    @include to(1024px) {
+      padding-bottom: 20px;
+    }
+
+    @include to(575px) {
+      margin-top: 25px;
+      padding-bottom: 25px;
+    }
 
     &:first-child{
       margin-top: 0;
@@ -46,11 +116,29 @@
       text-transform: uppercase;
       width: 80%;
       transition: color 0.3s ease-in-out;
+
+      @include to(1600px) {
+        font-size: 13px;
+      }
+
+      @include to(1024px) {
+        font-size: 11px;
+      }
     }
 
     .btn-circle {
       width: 65px;
       height: 65px;
+
+      @include to(1600px) {
+        width: 50px;
+        height: 50px;
+      }
+
+      @include to(1024px) {
+        width: 40px;
+        height: 40px;
+      }
 
       .circle-back{
         stroke: rgba(134, 137, 126, 0.5);
@@ -66,6 +154,9 @@
     }
 
     &:hover {
+      border-bottom: 1px solid $dgrc;
+      transition: all .3s ease-in-out;
+
       .doc{
         color: $dgrc;
         transition: color 0.3s ease-in-out;

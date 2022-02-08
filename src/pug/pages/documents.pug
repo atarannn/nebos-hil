@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Документи'
     var id_page = 'id-page-documents'
-    var class_page = 'class-page-documents'
+    var class_page = 'page-documents'
     var breadcrumbsSubitem = [
       {
         label: 'Документи',
@@ -35,10 +35,13 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/documents.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #documents
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
     .content-wrapper
       .docs-wrapper
         .docs-left-wrapper

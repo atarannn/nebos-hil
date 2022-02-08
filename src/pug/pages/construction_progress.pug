@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Хід будівництва'
     var id_page = 'id-page-construction_progress'
-    var class_page = 'class-page-construction_progress'
+    var class_page = 'page-construction_progress'
     var breadcrumbsSubitem = [
       {
         label: 'Хід будівництва',
@@ -14,43 +14,36 @@ block variable
     var cards = [{
       img: 'const-progress/1.png',
       text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
-      url: '#',
       date: '02',
       month:'жовтня 2021',
     }, {
       img: 'const-progress/2.png',
       text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
-      url: '#',
       date: '11',
       month:'вересня 2021',
     }, {
       img: 'const-progress/3.png',
       text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
-      url: '#',
       date: '23',
       month:'серпня 2021',
     }, {
       img: 'const-progress/4.png',
       text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
-      url: '#',
       date: '17',
       month:'липня 2021',
     }, {
       img: 'const-progress/5.png',
       text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
-      url: '#',
       date: '09',
       month:'червня 2021',
     }, {
       img: 'const-progress/6.png',
       text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
-      url: '#',
       date: '28',
       month:'травня 2021',
     }, {
       img: 'const-progress/7.png',
       text: 'Ділимось з вами новим звітом по будівництву  Neboshill',
-      url: '#',
       date: '01',
       month:'квітня 2021',
     }]
@@ -78,13 +71,26 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/build-progress.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #const_progress
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
       .const_progress__cards-wrapper
-        a(href="#" data-work-status).work-status
+        a(data-work-status).work-status
           .svg-wrapper
+            svg.status-load(width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg")
+              path(d="M10.4999 5.74806C9.97371 5.74806 9.53906 5.31295 9.53906 4.78624V0.961828C9.53906 0.435113 9.97371 0 10.4999 0C11.026 0 11.4606 0.435113 11.4606 0.961828V4.78624C11.4606 5.31295 11.026 5.74806 10.4999 5.74806Z" fill="#072826")
+              path(d="M10.4999 20.9999C9.97371 20.9999 9.53906 20.5648 9.53906 20.0381V16.2366C9.53906 15.7099 9.97371 15.2748 10.4999 15.2748C11.026 15.2748 11.4606 15.7099 11.4606 16.2366V20.061C11.4606 20.5877 11.026 20.9999 10.4999 20.9999Z" fill="#7D8E8D")
+              path(d="M6.45099 7.41993C6.19936 7.41993 5.9706 7.32832 5.78759 7.14512L3.08823 4.44284C2.72222 4.07643 2.72222 3.45811 3.08823 3.0917C3.45425 2.72529 4.0719 2.72529 4.43791 3.0917L7.13727 5.79398C7.50328 6.16039 7.50328 6.77871 7.13727 7.14512C6.95426 7.32832 6.70263 7.41993 6.45099 7.41993Z" fill="#C4CBCB")
+              path(d="M17.2485 18.2059C16.9969 18.2059 16.7681 18.1143 16.5851 17.9311L13.8629 15.2289C13.4969 14.8624 13.4969 14.2441 13.8629 13.8777C14.2289 13.5113 14.8466 13.5113 15.2126 13.8777L17.9119 16.58C18.2779 16.9464 18.2779 17.5647 17.9119 17.9311C17.7289 18.1143 17.4773 18.2059 17.2485 18.2059Z" fill="#4F6665")
+              path(d="M4.78107 11.4732H0.960789C0.434643 11.4732 0 11.0381 0 10.5114C0 9.98467 0.434643 9.54956 0.960789 9.54956H4.78107C5.30721 9.54956 5.74186 9.98467 5.74186 10.5114C5.74186 11.0381 5.30721 11.4732 4.78107 11.4732Z" fill="#ADB7B6")
+              path(d="M20.0391 11.4732H16.2188C15.6927 11.4732 15.2581 11.0381 15.2581 10.5114C15.2581 9.98467 15.6927 9.54956 16.2188 9.54956H20.0391C20.5653 9.54956 20.9999 9.98467 20.9999 10.5114C20.977 11.0381 20.5653 11.4732 20.0391 11.4732Z" fill="#1F3D3B")
+              path(d="M3.75163 18.2059C3.5 18.2059 3.27124 18.1143 3.08823 17.9311C2.72222 17.5647 2.72222 16.9464 3.08823 16.58L5.78759 13.8777C6.15361 13.5113 6.77126 13.5113 7.13727 13.8777C7.50328 14.2441 7.50328 14.8624 7.13727 15.2289L4.43791 17.9311C4.2549 18.1143 4.00327 18.2059 3.75163 18.2059Z" fill="#899897")
+              path(d="M14.549 7.41993C14.2974 7.41993 14.0686 7.32832 13.8856 7.14512C13.5196 6.77871 13.5196 6.16039 13.8856 5.79398L16.585 3.0917C16.951 2.72529 17.5686 2.72529 17.9346 3.0917C18.3006 3.45811 18.3006 4.07643 17.9346 4.44284L15.2124 7.14512C15.0294 7.32832 14.7778 7.41993 14.549 7.41993Z" fill="#072826")
+
             svg.btn-circle(viewBox="0 0 200 200")
               circle.circle-back(cx="100" cy="100" r="95" stroke-width="2" fill-opacity="0")
               circle.circle(cx="100" cy="100" r="95" stroke-width="2" fill-opacity="0")
@@ -93,13 +99,12 @@ block content
           each cd in cards
             .card
               .card__wrapper(data-card)
-                a(href=cd.url)
-                  .card__month= cd.month
-                  +img(cd.img).card-img
-                  .card__date= cd.date
-                  .card__text= cd.text
+                .card__month= cd.month
+                +img(cd.img).card-img
+                .card__date= cd.date
+                .card__text= cd.text
 
-  .popup.build-popup
+  .popup(data-disable-page-scroll).build-popup
     .popup__close-wrapper
       .popup__close(data-close)
         span
@@ -141,7 +146,7 @@ block content
         iframe(width="560" height="315" src="https://www.youtube.com/embed/nH0FPhEZ7ZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 
 
-  .popup.status-popup
+  .popup(data-disable-page-scroll).status-popup
     .popup__close-wrapper
       .popup__close(data-close)
         span

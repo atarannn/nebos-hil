@@ -4,15 +4,30 @@ function init() {
         preloadImages: false,
         lazy: true,
         speed: 5000,
-        slidesPerView:'auto',
+        slidesPerView: 'auto',
         freeMode: true,
-        spaceBetween: 150,
+        spaceBetween: 250,
         autoplay: {
             delay: 0,
-            disableOnInteraction: false,
-            waitForTransition: false,
+            disableOnInteraction: true,
+            waitForTransition: true,
         },
         watchSlidesVisibility: true,
+
+        breakpoints: {
+            1600: {
+                spaceBetween: 250,
+            },
+            1024: {
+                spaceBetween: 180,
+            },
+            575: {
+                spaceBetween: 80,
+            },
+            320: {
+                spaceBetween: 30,
+            }
+        }
     });
 }
 

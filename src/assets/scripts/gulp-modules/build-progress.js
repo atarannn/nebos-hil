@@ -68,8 +68,8 @@ class Popup {
       .timeScale(2)
       .fromTo(
         this.mountedPopup.querySelector('.my-popup-content'),
-        { y: 0, autoAlpha: 1 },
-        { y: -100, autoAlpha: 0 },
+        { autoAlpha: 1},
+        { autoAlpha: 0 },
       )
       .fromTo(
         this.mountedPopup,
@@ -81,7 +81,7 @@ class Popup {
 
   openPopup() {
     gsap.timeline()
-      .timeScale(1.5)
+      .timeScale(2)
       .set(this.mountedPopup, { display: 'flex' })
       .fromTo(
         this.mountedPopup,
@@ -90,8 +90,8 @@ class Popup {
       )
       .fromTo(
         this.mountedPopup.querySelector('.my-popup-content'),
-        { y: -100, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1 },
+        { autoAlpha: 0 },
+        { autoAlpha: 1 },
       )
       .add(() => {
         this.afterOpenCb();
@@ -111,6 +111,12 @@ class Popup {
             justify-content:center;
             align-items: center;
             z-index:1000;
+            background: rgba(0, 0, 0, 0.75);
+          }
+          @media screen and (max-width: 575px){
+            .my-popup-overlay {
+                background: transparent;
+            }
           }
         </style>
       `;
@@ -167,24 +173,78 @@ cards.forEach((card) => {
       popupContent.url = response.video;
       popupContent.date = response.date;
     });
-    document.body.style.overflow = 'visible';
+    OpenBuildAnim();
+    document.body.style.overflow = 'hidden';
   });
 });
 buildPopup.close.addEventListener('click', () => {
-  document.body.style.overflow = 'hidden';
+  CloseBuildAnim();
+  document.body.style.overflow = 'auto';
 });
+
+function OpenBuildAnim(evt, reverseArg) {
+  const popupClose = document.querySelector('.build-popup [data-close]');
+  const popupBuildInfo = document.querySelector('[data-build-info]');
+
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(popupBuildInfo, {x: 2000},
+      { x: 0, ease: 'power4.easeInOut', duration: 0.6, delay: 0.6, clearProps: 'all' }, '<');
+  tl.fromTo(popupClose, {y: -200},
+      { y: 0, ease: 'power4.easeInOut', duration: 0.4, delay: 0.6, clearProps: 'all' }, '<');
+  tl.play();
+}
+function CloseBuildAnim(evt, reverseArg) {
+  const popupClose = document.querySelector('.build-popup [data-close]');
+  const popupBuildInfo = document.querySelector('[data-build-info]');
+
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(popupBuildInfo, {x: 0},
+      { x: 2000, ease: 'power4.easeInOut', duration: 0.6, clearProps: 'all' }, '<');
+  tl.fromTo(popupClose, {y: 0},
+      { y: -200, ease: 'power4.easeInOut', duration: 0.4, clearProps: 'all' }, '<');
+
+  tl.play();
+}
 
 const statusPopup = new Popup({
   call: status,
   content: document.querySelector('.status-popup'),
   close: document.querySelector('[data-close]'),
 });
+
 status[0].addEventListener('click', () => {
-  document.body.style.overflow = 'visible';
-});
-statusPopup.close.addEventListener('click', () => {
+  OpenStatusAnim();
   document.body.style.overflow = 'hidden';
 });
+statusPopup.close.addEventListener('click', () => {
+  CloseStatusAnim();
+  document.body.style.overflow = 'auto';
+});
+
+function OpenStatusAnim(evt, reverseArg) {
+  const popupClose = document.querySelector('.status-popup [data-close]');
+  const popupStatusInfo = document.querySelector('.status__wrapper');
+
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(popupStatusInfo, {x: 2000},
+      { x: 0, ease: 'power4.easeInOut', duration: 0.6, delay: 0.6, clearProps: 'all' }, '<');
+  tl.fromTo(popupClose, {y: -200},
+      { y: 0, ease: 'power4.easeInOut', duration: 0.4, delay: 0.6, clearProps: 'all' }, '<');
+
+  tl.play();
+}
+function CloseStatusAnim(evt, reverseArg) {
+  const popupClose = document.querySelectorAll('.status-popup [data-close]');
+  const popupStatusInfo = document.querySelector('.status__wrapper');
+
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(popupStatusInfo, {x: 0},
+      { x: 2000, ease: 'power4.easeInOut', duration: 0.6, clearProps: 'all' }, '<');
+  tl.fromTo(popupClose, {y: 0},
+      { y: -200, ease: 'power4.easeInOut', duration: 0.4, clearProps: 'all' }, '<');
+
+  tl.play();
+}
 
 function requestBuildDetails(id, cb = () => {}) {
   const sendData = new FormData();
@@ -203,7 +263,7 @@ function requestBuildDetails(id, cb = () => {}) {
 }
 
 function horizontalScrolButtons({ forwardButton, backwardButton }, elWithScroll) {
-  const delta = 900;
+  const delta = 1500;
   const scrollEl = document.querySelector(elWithScroll);
   const right = document.querySelector(forwardButton);
   const left = document.querySelector(backwardButton);

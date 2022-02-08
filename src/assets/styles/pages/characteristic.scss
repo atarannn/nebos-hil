@@ -1,6 +1,49 @@
+.page-characteristic {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
 #characteristic {
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom);
+  }
+
+  .characteristic__img {
+    display: none;
+    margin-bottom: 30px;
+    height: 141px;
+    width: 213px;
+
+    @include to(1024px) {
+      display: block;
+    }
+
+    @include to(575px) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include to(1024px) {
+    .hover-reveal {
+      display: none;
+    }
   }
 
   .content-wrapper {
@@ -13,11 +56,27 @@
 
   .content-wrapper>*:nth-child(2n+1) {
     align-self: flex-start;
+
+    @include to(1024px) {
+      padding-right: 12px;
+    }
+
+    @include to(575px) {
+      padding-right: 0;
+    }
   }
 
   .content-wrapper>*:nth-child(2n) {
     align-self: flex-end;
     padding-left: 30px;
+
+    @include to(1024px) {
+      padding-left: 12px;
+    }
+
+    @include to(575px) {
+      padding-left: 0;
+    }
   }
 }
 
@@ -26,10 +85,33 @@
 
   &__info {
     width: 70%;
+
+    @include to(1024px) {
+      width: 100%;
+    }
+  }
+
+  @include to(575px) {
+    width: 100%;
+    margin-bottom: 70px;
+  }
+
+  &:last-child {
+    @include to(575px) {
+      margin-bottom: 0;
+    }
   }
 
   .characteristic__text {
     @include open-thin-text(18px, $hc, left, 160%);
+
+    @include to(1600px) {
+      font-size: 14px;
+    }
+
+    @include to(1024px) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -38,10 +120,22 @@
   flex-direction: column;
   margin-bottom: 20px;
 
+  @include to(1024px) {
+    margin-bottom: 10px;
+  }
+
   .characteristic__title {
     position: relative;
     cursor: pointer;
     @include tenor-text(40px, $dgrc);
+
+    @include to(1600px) {
+      font-size: 28px;
+    }
+
+    @include to(1024px) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -53,6 +147,11 @@
   left: 0;
   pointer-events: none;
   opacity: 0;
+
+  @include to(1600px) {
+    width: 250px;
+    height: 165px;
+  }
 }
 
 .hover-reveal__inner,

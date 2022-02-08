@@ -8,7 +8,7 @@ panoramaWrapper.addEventListener('mouseleave', () => {
     panorama.style.pointerEvents = 'none';
     panoramaOverlay.style.display = 'flex';
 });
-panoramaWrapper.addEventListener('click', () => {
+panoramaWrapper.addEventListener('mousedown', () => {
     panorama.style.pointerEvents = 'grabbing';
     panoramaOverlay.style.display = 'none';
 });

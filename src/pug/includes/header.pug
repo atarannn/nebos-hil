@@ -1,16 +1,22 @@
 header.header
     .header__left
         a(href='index.html').header__logo
-            img(src="assets/images/logo.svg")
-            img.second-logo(src="assets/images/logo-2.svg")
+            img(src="assets/images/logo.svg").first-logo
+            img(src="assets/images/logo-2.svg").second-logo
+            img(src="assets/images/logo-mob.svg").mobile-logo
 
-        a(href="/").header__btn.button-style
+        a(href="#").header__btn.button-style
             span обрати квартиру
+            +svg('flat')
 
         .custom-select(data-lang="desktop")
             include ../components/lang/lang.pug
 
+        .button-phone.js-mobile-call
+            +svg('phone')
+
     .header__right
+
         a(data-open-call-popup).header__call замовити дзвінок
 
         a(href='tel:0442992203').header__btn.button-style.header__tell
@@ -19,8 +25,9 @@ header.header
         .burger(data-open-menu)
             span.burger__name.second-burger__name Меню
             .burger__icon
-                span.burger__icon__line
-                span.burger__icon__line
+                .burger__icon__line-wrapper
+                    span.burger__icon__line
+                    span.burger__icon__line
 
 
 

@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Локація'
     var id_page = 'id-page-location'
-    var class_page = 'class-page-location'
+    var class_page = 'page-location'
     var breadcrumbsSubitem = [
       {
         label: 'Локація',
@@ -12,10 +12,10 @@ block variable
       }
     ]
     var slider = [
-      {img: 'location/2.png', text: 'Тихий центр'},
       {img: 'location/3.png', text: 'Піша доступність до парку Шевченка'},
       {img: 'location/4.png', text: 'Поряд найкращі ресторани міста'},
       {img: 'location/5.png', text: 'Банки, торгові центри та свіжі продукти із «Сільпо»'},
+      {img: 'location/2.png', text: 'Тихий центр'},
     ]
     var cards = [{
       img: 'location/8.png',
@@ -44,11 +44,13 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/location.js')
-  script(defer src='./assets/scripts/purchase_terms.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #location
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       .absolute-block__wrapper
@@ -56,9 +58,9 @@ block content
 
         .absolute-block
           .half-mini-block.blocks-left-shift
-            .page-blocks__text Абсолютна перевага ЖК — його локація:
+            .page-blocks__text(data-span-entry3) Абсолютна перевага ЖК — його локація:
           .half-big-block.blocks-right-shift
-            .page-blocks__absolute-big-title вул. Володимира Вернадського 35Н
+            .page-blocks__absolute-big-title(data-span-entry3) вул. Володимира Вернадського 35Н
 
       .swiper-container.slider-block__wrapper.location-swiper.after-absolute-blocks-top-shift
         .swiper-wrapper.slider-block
@@ -69,24 +71,48 @@ block content
 
       .row-block.blocks-top-shift.position-relative
         .half-big-block.half-left-block.position-absolute__text
-          .page-blocks__title.blocks-right-shift У ЖК NEBOS'HILL все максимально зручно
-          .page-blocks__text.mini-text У тому числі в'їзд та виїзд на три головні вулиці міста – Крутогірний узвіз, вулицю Ливарну та Вернадського, з якої ви легко потрапите прямо на Набережну
+          .page-blocks__title.blocks-right-shift(data-span-entry3) У ЖК NEBOS'HILL все максимально зручно
+          .page-blocks__text.mini-text(data-span-entry3) У тому числі в'їзд та виїзд на три головні вулиці міста – Крутогірний узвіз, вулицю Ливарну та Вернадського, з якої ви легко потрапите прямо на Набережну
         +img('location/6.png').right-block-img
 
       .infrastructure__wrapper.blocks-top-shift
-        .infrastructure__title.blocks-left-shift інфраструктура
+        .infrastructure__title.blocks-left-shift(data-span-entry3) інфраструктура
+
+        .map.top-padding-blocks-2
+          #map(width="960px" height="540px")
+          .location-markers__wrapper
+            .location-markers__btn
+              span Об’єкти інфраструктури
+              +svg('arrow-white')
+            ul.location-markers__ul(data-mob-accordeon).opened
+              li
+                +img('location/map-1.svg')
+                span спортклуби
+              li
+                +img('location/map-1.svg')
+                span спортклуби
+              li
+                +img('location/map-1.svg')
+                span спортклуби
+              li
+                +img('location/map-1.svg')
+                span спортклуби
+              li
+                +img('location/map-1.svg')
+                span спортклуби
+
 
         .top-padding-blocks
           .half-block.half-right-block
-            .page-blocks__big-white-text Наше життя підпорядковується стандартним та зручним маршрутам
+            .page-blocks__big-white-text(data-span-entry3) Наше життя підпорядковується стандартним та зручним маршрутам
           .row-block.top-padding-blocks-2
             .half-block.half-left-block
-              .page-blocks__white-text Як добре, що не потрібно робити спеціальну зупинку для придбання здорової їжі. Здорова їжа та смачна кава - це просто і прямо на території NEBOS'HILL
+              .page-blocks__white-text(data-span-entry3) Як добре, що не потрібно робити спеціальну зупинку для придбання здорової їжі. Здорова їжа та смачна кава - це просто і прямо на території NEBOS'HILL
             +img('location/7.png').right-block-img
 
       .blocks-top-shift
         .half-block.half-right-block
-          .page-blocks__big-text Концепція комплексу передбачає наявність комерційних приміщень, які підходять для:
+          .page-blocks__big-text(data-span-entry3) Концепція комплексу передбачає наявність комерційних приміщень, які підходять для:
 
         .blocks-top-shift
           .location-cards.blocks-right-shift.blocks-left-shift

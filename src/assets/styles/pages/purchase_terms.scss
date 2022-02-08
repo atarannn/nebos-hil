@@ -1,19 +1,69 @@
+.page-purchase_terms {
+  .header__call {
+    @include open-text(14px, $dgrc);
+    @include hover-underline($dgrc);
+  }
+
+  .burger__name {
+    @include open-text(14px, $dgrc);
+  }
+
+  @include to(1600px) {
+    .header__call {
+      font-size: 11px;
+    }
+
+    .burger__name {
+      font-size: 11px;
+    }
+  }
+}
+
+
 #purchase_terms{
-  .breadcrumbs {
+  .page-title {
     margin-bottom: var(--breadcrumb-bottom-3);
   }
+}
+
+.purchase_terms-info__text{
+  font-size: 10px;
 }
 
 .purchase_terms-info-row__wrapper {
   padding-left: var(--margin);
   padding-right: var(--margin);
+
+  @include to(575px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .purchase_terms-info-row {
   @include size(5);
   @include row-flex;
   margin-left: 0;
+  margin-right: 0;
   justify-content: space-between;
+
+  @include to(1600px) {
+    @include size-llg(5);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @include to(1024px) {
+    @include size-lg(6);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @include to(575px) {
+    width: 100%;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+  }
 }
 
 .purchase_terms-info__block {
@@ -21,9 +71,30 @@
   flex-direction: column;
   width: 250px;
 
+  @include to(1024px) {
+    width: 150px;
+  }
+
+  @include to(575px) {
+    width: 70%;
+    margin-top: 30px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
   .purchase_terms-info__num{
     @include tenor-text(110px, $dgrc);
     margin-bottom: 10px;
+
+    @include to(1600px) {
+      font-size: 80px;
+    }
+
+    @include to(1024px) {
+      font-size: 60px;
+    }
   }
 }
 
@@ -31,4 +102,16 @@
   @include tenor-text(40px, $dgrc);
   @include hover-underline($dgrc);
   padding: 0 10px;
+
+  &:after {
+    bottom: 3px;
+  }
+
+  @include to(1600px) {
+    font-size: 28px;
+  }
+
+  @include to(1024px) {
+    font-size: 20px;
+  }
 }

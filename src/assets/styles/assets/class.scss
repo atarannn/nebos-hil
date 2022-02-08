@@ -569,56 +569,222 @@ picture img {
   }
 }
 
+.page-title {
+  @include tenor-text(100px, $dgrc);
+
+  @include to(1600px) {
+    font-size: 70px;
+  }
+
+  @include to(1024px) {
+    font-size: 50px;
+  }
+
+  @include to(575px) {
+    font-size: 30px;
+  }
+}
+
 .button-style {
   height: 65px;
   width: 260px;
+
+  @include to(1600px) {
+    width: 200px;
+    height: 50px;
+  }
 }
 
 .main-page-img{
   height: calc(100vh - var(--header-h-2));
+
+
+  @include to(1024px) {
+    height: calc(60vh - var(--header-h-2));
+  }
+
+  @include to(575px) {
+    height: 290px;
+  }
 }
 
 .page-blocks__title{
   @include tenor-text(65px, $dgrc);
+
+  @include to(1600px) {
+    font-size: 45px;
+  }
+
+  @include to(1024px) {
+    font-size: 28px;
+  }
+
+  @include to(575px) {
+    font-size: 25px;
+  }
 }
 
 .page-blocks__big-title{
   @include tenor-text(65px, $dgrc);
-  @include shift-left(0);
-  @include shift-right(0);
   @include size(4);
+
+  @include to(1600px) {
+    @include size_llg(4);
+    font-size: 45px;
+  }
+
+  @include to(1024px) {
+    @include size-lg(4);
+    font-size: 28px;
+  }
+
+  @include to(575px) {
+    width: 100%;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
 }
 
 .page-blocks__absolute-big-title{
   @include tenor-text(65px, $dgrc);
+
+  @include to(1600px) {
+    font-size: 45px;
+  }
+
+  @include to(1024px) {
+    font-size: 28px;
+  }
+
+  @include to(575px) {
+    font-size: 25px;
+  }
 }
 
 .page-blocks__dev-logo{
-  @include size(1);
-  @include shift-left(0);
-  @include shift-right(1);
+  object-fit: contain;
+  border-radius: 100%;
+  background-image: url(../images/developer/dev-logo.svg);
+  box-shadow: 0px 100px 70px rgba(169, 180, 203, 0.2), -3px -3px 6px #FFFFFF, 0px 3px 20px #D6DADF, inset 0px -20px 20px rgba(255, 255, 255, 0.2);
+  background-size: cover;
+  background-position: center;
+  height: 236px;
+  width: 236px;
+  margin-left: 60px;
+
+  @include to(1600px) {
+    height: 171px;
+    width: 171px;
+    margin-left: 40px;
+  }
+
+  @include to(1024px) {
+    height: 118px;
+    width: 118px;
+    margin-left: 25px;
+  }
+
+  @include to(575px) {
+    height: 155px;
+    width: 155px;
+    margin-left: 0;
+  }
+}
+
+.page-blocks__hall-logo{
+  object-fit: contain;
+  border-radius: 100%;
+  background-image: url(../images/hall/mramor.svg);
+  box-shadow: 0px 100px 70px rgba(169, 180, 203, 0.2), -3px -3px 6px #FFFFFF, 0px 3px 20px #D6DADF, inset 0px -20px 20px rgba(255, 255, 255, 0.2);
+  background-size: cover;
+  background-position: center;
+  height: 236px;
+  width: 236px;
+  margin-left: 60px;
+
+  @include to(1600px) {
+    height: 171px;
+    width: 171px;
+    margin-left: 40px;
+  }
+
+  @include to(1024px) {
+    height: 118px;
+    width: 118px;
+    margin-left: 25px;
+  }
+
+  @include to(575px) {
+    height: 155px;
+    width: 155px;
+    margin-left: 0;
+  }
 }
 
 .page-blocks__text{
   @include open-thin-text(18px, $gc-text, left, 160%);
   text-transform: uppercase;
+
+  @include to(1600px) {
+    font-size: 14px;
+  }
+
+  @include to(1024px) {
+    font-size: 12px;
+  }
 }
 
 .page-blocks__white-text{
   @include open-thin-text(18px, #D3D3D3, left, 160%);
   text-transform: uppercase;
+
+  @include to(1600px) {
+    font-size: 14px;
+  }
+
+  @include to(1024px) {
+    font-size: 12px;
+  }
 }
 
 .page-blocks__big-text {
   @include tenor-text(40px, $dgrc);
+
+  @include to(1600px) {
+    font-size: 28px;
+  }
+
+  @include to(1024px) {
+    font-size: 20px;
+  }
 }
 
 .page-blocks__big-white-text{
   @include tenor-text(40px, $main-bcg);
+
+  @include to(1600px) {
+    font-size: 28px;
+  }
+
+  @include to(1024px) {
+    font-size: 20px;
+  }
 }
 
 .mini-text{
   @include size(4);
+
+  @include to(1600px) {
+    @include size-llg(4);
+  }
+
+  @include to(1024px) {
+    @include size-lg(6);
+  }
+
+  @include to(575px) {
+    width: 100%;
+  }
 }
 
 .absolute-block__wrapper{
@@ -630,7 +796,23 @@ picture img {
   position: absolute;
   left: 0;
   right: 0;
-  top: 97%;
+  top: 96%;
+
+  @include to(1024px) {
+    position: static;
+    padding-top: var(--after-absolute-blocks-top-shift);
+  }
+
+  @include to(575px) {
+    flex-direction: column;
+  }
+}
+
+
+.mobile-padding {
+  @include to(575px) {
+    margin-bottom: 30px;
+  }
 }
 
 

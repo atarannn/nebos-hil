@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Характеристики'
     var id_page = 'id-page-characteristic'
-    var class_page = 'class-page-characteristic'
+    var class_page = 'page-characteristic'
     var breadcrumbsSubitem = [
       {
         label: 'Характеристики',
@@ -34,17 +34,22 @@ block scripts
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
-  script(defer src='./assets/scripts/characteristic.js')
   script(defer src='./assets/scripts/no-scroll.js')
+  script(defer src='./assets/scripts/characteristic.js')
+  script(defer src='./assets/scripts/animation.js')
+
+
 block content
   #characteristic
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       each char in characteristic
         .characteristic-block(data-characteristic)
           .characteristic-block__info
+            +img(char.img).characteristic__img
             .characteristic-block__title(data-fx="2")
               a.characteristic__title(data-img="./assets/images/"+char.img)= char.title
             .characteristic__text= char.text

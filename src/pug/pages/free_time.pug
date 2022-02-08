@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Дозвілля'
     var id_page = 'id-page-free_time'
-    var class_page = 'class-page-free_time'
+    var class_page = 'page-free_time'
     var breadcrumbsSubitem = [
       {
         label: 'Дозвілля',
@@ -29,10 +29,13 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/purchase_terms.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #free_time
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       +img('free_time/1.png').main-page-img
@@ -40,17 +43,17 @@ block content
       .page-blocks
         .top-block__wrapper
           .half-big-block.half-right-block.blocks-right-shift
-            .page-blocks__big-text У комплексі NEBOS'HILL виділено комфортне місце для ігрової зони, зробленої з висококласних, екологічно чистих матеріалів
+            .page-blocks__big-text(data-span-entry3) У комплексі NEBOS'HILL виділено комфортне місце для ігрової зони, зробленої з висококласних, екологічно чистих матеріалів
           .row-block.top-padding-blocks-2
             .half-block.half-left-block
-              .page-blocks__text Діти зможуть проводити на вулиці достатню кількість часу, навчатися самостійності та розвиватися фізично. Сучасний підхід та турбота про мешканців – це можливість якісно проводити час із дітьми та дозволяти їм грати з однолітками у власному безпечному дворі
+              .page-blocks__text(data-span-entry3) Діти зможуть проводити на вулиці достатню кількість часу, навчатися самостійності та розвиватися фізично. Сучасний підхід та турбота про мешканців – це можливість якісно проводити час із дітьми та дозволяти їм грати з однолітками у власному безпечному дворі
             +img('free_time/2.png').right-block-img
 
         .blocks-top-shift
           .top-block-row.blocks-left-shift
-            .page-blocks__big-title Дитячий майданчик лише одна з безлічі локацій для розваг у житловому комплексі
+            .page-blocks__big-title(data-span-entry3) Дитячий майданчик лише одна з безлічі локацій для розваг у житловому комплексі
           .half-block.top-padding-blocks-2.half-right-block
-            .page-blocks__text Внутрішнє подвір'я потопає в зелені, а стильний ландшафтний дизайн забезпечує тінь і свіже повітря для комфортних прогулянок. Купуючи квартиру в ЖК NEBOS'HILL, Ви оціните всі переваги єдиної в місті такого масштабу прибудинкової території
+            .page-blocks__text(data-span-entry3) Внутрішнє подвір'я потопає в зелені, а стильний ландшафтний дизайн забезпечує тінь і свіже повітря для комфортних прогулянок. Купуючи квартиру в ЖК NEBOS'HILL, Ви оціните всі переваги єдиної в місті такого масштабу прибудинкової території
           .swiper-container.top-padding-blocks.slider-block__wrapper
             .swiper-wrapper.slider-block
               each crd in slider
@@ -60,7 +63,7 @@ block content
 
           .blocks-top-shift
             .half-big-block.half-right-block.blocks-right-shift
-              .page-blocks__big-text Житловий ультрасучасний комплекс NEBOS'HILL абсолютно підходить тим, хто любить та цінує свій час та комфорт
+              .page-blocks__big-text(data-span-entry3) Житловий ультрасучасний комплекс NEBOS'HILL абсолютно підходить тим, хто любить та цінує свій час та комфорт
 
 
 block footer

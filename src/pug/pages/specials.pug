@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Особливості'
     var id_page = 'id-page-specials'
-    var class_page = 'class-page-specials'
+    var class_page = 'page-specials'
     var breadcrumbsSubitem = [
       {
         label: 'Особливості',
@@ -12,6 +12,7 @@ block variable
       }
     ]
     var slider = ['specials/2.png', 'specials/3.png', 'specials/4.png']
+    var sliderCard = ['Комерційні приміщення на 1 поверсі', 'Естетичний фасад', 'Розташування у тихому центрі', 'закрита територія']
     var specialsInfo = [
       {num: '2', text: 'секції'},
       {num: '14', text: 'поверхів'},
@@ -49,10 +50,13 @@ block scripts
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/specials.js')
   script(defer src='./assets/scripts/purchase_terms.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #specials
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       .absolute-block__wrapper
@@ -60,9 +64,9 @@ block content
 
         .absolute-block
           .half-big-block.blocks-left-shift
-            .page-blocks__absolute-big-title ЖК NEBOS'HILL розташований у самому серці Дніпра
+            .page-blocks__absolute-big-title(data-span-entry3) ЖК NEBOS'HILL розташований у самому серці Дніпра
       .half-block.half-right-block.after-absolute-blocks-top-shift
-        .page-blocks__text це місто визнано історичною цінністю ще з часів Катерини ІІІ це робить його ще більш привабливим і бажаним для життя. Атмосфера, дух місця - вони невловимі. Їх не виміряти тоннами будівельних матеріалів. Не підрахувати квадратними метрами приміщення
+        .page-blocks__text(data-span-entry3) це місто визнано історичною цінністю ще з часів Катерини ІІІ це робить його ще більш привабливим і бажаним для життя. Атмосфера, дух місця - вони невловимі. Їх не виміряти тоннами будівельних матеріалів. Не підрахувати квадратними метрами приміщення
 
       .swiper-container.slider-block__wrapper.location-swiper.blocks-top-shift
         .swiper-wrapper.slider-block
@@ -72,14 +76,14 @@ block content
 
       .blocks-top-shift
         .half-block.half-right-block
-          .page-blocks__big-text Наше життя підпорядковується стандартним та зручним маршрутам
+          .page-blocks__big-text(data-span-entry3) Це концепція, яка приваблює людей близьких за духом, зі схожими цінностями
         .row-block.top-padding-blocks-2
           .half-block.half-left-block
-            .page-blocks__text Як добре, що не потрібно робити спеціальну зупинку для придбання здорової їжі. Здорова їжа та смачна кава - це просто і прямо на території NEBOS'HILL
+            .page-blocks__text(data-span-entry3) А після заселення мешканці цього будинку створять спільноту, яка ще більше посилить цінність об'єктуМи позиціонуємо свої об'єкти як сучасні інноваційні комплекси та продаємо не квадратні метри, а місце, яке стане для людей домівкою, частиною історії та стилю життя
           +img('specials/5.png').right-block-img
 
       .specials-info__wrapper.blocks-top-shift
-        .specials-info__title.blocks-left-shift жк NEBOS'HILL - це :
+        .specials-info__title.blocks-left-shift(data-span-entry3) жк NEBOS'HILL - це :
 
         .specials-info-cards.top-padding-blocks-2.blocks-left-shift.blocks-right-shift
           each sp in specialsInfo
@@ -87,28 +91,42 @@ block content
               .specials-info-card__num=sp.num
               .specials-info-card__text=sp.text
 
+        .blocks-top-shift
+          .specials-slider__wrap.swiper-card
+            .swiper-wrapper
+              each card in sliderCard
+                .swiper-slide
+                  .specials-info__title=card
+            .swiper-button__wrapper
+              .swiper-button-prev
+                +svg('gallery-arrow')
+              .swiper-button-next
+                +svg('gallery-arrow')
+
       .blocks-top-shift
         .half-block.half-right-block
-          .page-blocks__big-text У ЖК NEBOS'HILL передбачено два види фасаду головний фасад і фасад у внутрішньому дворі
+          .page-blocks__big-text(data-span-entry3) У ЖК NEBOS'HILL передбачено два види фасаду головний фасад і фасад у внутрішньому дворі
 
-        .top-padding-blocks-2
-          //.specials-slider__wrap.swiper-cont
-          //  .swiper-wrapper
-          //    each sl in secondSlider
-          //      .swiper-slide.specials-slide
-          //        .slide__content(data-swiper-parallax="300" data-swiper-parallax-delay="600" data-img)
-          //          .half-block.half-left-block
-          //            .slider-content-text= sl.text
-          //          +img(sl.img).right-block-img.specials-slider__img
-          //
-          //  .specials-slider__amount
-          //    .specials-slider__current.js-slider__current(data-current)
-          //      span(data-first-digit)
-          //      span(data-second-digit)
-          //    span.slider__all.js-slider__all(data-total)
+      .top-padding-blocks-2
+        .specials-slider__wrap.swiper-cont
+          .swiper-wrapper
+            each sl in secondSlider
+              .swiper-slide.specials-slide
+                .slide__content
+                  .half-block.half-left-block
+                    .page-blocks__text= sl.text
+                  +img(sl.img).right-block-slider-img.specials-slider__img
+          .specials-gallery-animation-for-slider
+          .specials-slider__amount
+            .specials-slider__current.js-slider__current(data-current)
+              span(data-first-digit)
+              span(data-second-digit)
+            span.slider__all.js-slider__all(data-total)
 
-            .moving-arrow
-              +svg('gallery-arrow').arrow-style
+          .moving-arrow
+            +svg('gallery-arrow').arrow-style
+          .swiper-button-next(data-next)
+          .swiper-button-prev(data-prev)
 
 
 

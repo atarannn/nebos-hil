@@ -4,7 +4,7 @@ block variable
   -
     var title_page = 'Галерея'
     var id_page = 'id-page-gallery'
-    var class_page = 'class-page-gallery'
+    var class_page = 'page-gallery'
     var breadcrumbsSubitem = [
       {
         label: 'Галерея',
@@ -36,10 +36,13 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/gallery.js')
+  script(defer src='./assets/scripts/animation.js')
+
 block content
   #gallery
     .page-content
       include ../includes/breadcrumbs.pug
+      h1(data-span-entry1).page-title= title_page
 
     .content-wrapper
       .gallery-slider__wrap.swiper-container
@@ -48,6 +51,7 @@ block content
             .swiper-slide.gallery-slide
               .slide__content(data-swiper-parallax="300" data-swiper-parallax-delay="600" data-img)
                   +img(sl.img)
+        .gallery-animation-for-slider
         .gallery-slider__amount
           .gallery-slider__current.js-slider__current(data-current)
             span(data-first-digit)
@@ -56,7 +60,8 @@ block content
 
         .moving-arrow
           +svg('gallery-arrow').arrow-style
-
+        .swiper-button-next(data-next)
+        .swiper-button-prev(data-prev)
 
 
 block footer
