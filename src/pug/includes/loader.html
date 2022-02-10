@@ -1,5 +1,86 @@
 <div class='preloader'>
-    <svg class="preloader__image" width="74" height="93" viewBox="0 0 74 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="preloader__image" viewBox="0 0 74 93" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M74 34.2025C68.2849 32.1233 62.5005 30.0935 57.0425 28.1818L52.7512 26.6939C48.2028 25.1173 43.5457 23.5013 38.9083 21.9542C32.7878 19.8751 26.7859 17.8452 20.7643 15.8449C16.1665 14.3175 10.1349 12.3172 4.10341 10.3465L3.89577 10.2775L3.7969 4.92689L4.23196 5.06484L63.954 25.1271L0.118648 0V25.9549L0.0692065 32.5667C0.0692065 39.0407 0.00988776 45.6132 0 51.9787V53.5652C0 60.3051 -1.32753e-05 67.4787 0.0790888 74.5636C0.0790888 80.7517 0.177974 86.9498 0.257076 93L3.90566 92.3891C3.98476 86.3586 4.04408 80.3576 4.08363 74.5636C4.08363 68.3163 4.14297 61.9803 4.15286 56.0385V55.7133L13.1309 56.0385V90.8519L16.0973 90.3493V56.1666L25.4016 56.5114V88.8023L27.6165 88.4278V56.5706L30.9091 56.6888V87.876L32.3527 87.6395V56.7381L42.0526 57.0928V86.0137L43.1106 85.8363V57.1519L48.1435 57.3392V84.9987L48.8159 84.8903V57.2997L69.8867 58.1373L53.4335 56.5312V28.4971L56.7063 29.4234C62.2039 30.9803 68.097 32.6259 74 34.2025ZM15.1382 52.7572L4.15286 51.6831V51.2397C4.15286 45.1106 4.15286 38.7845 4.09353 32.5175L3.91554 13.9628L4.34073 14.0811L14.9107 17.254L15.1382 17.323V52.7572ZM21.3971 53.3681L18.1341 53.0528V18.2689L21.3971 19.2543V53.3681ZM32.4912 54.452L23.5922 53.5849V19.8849L24.0075 20.0032L32.3132 22.4174L32.5406 22.4863L32.4912 54.452ZM40.5398 55.2403L33.9447 54.5998V22.91L40.5398 24.8217V55.2403ZM49.2015 56.0877L41.5978 55.3487V25.137L42.0131 25.2552L48.9345 27.226L49.1718 27.295L49.2015 56.0877ZM53.1072 56.472L49.8739 56.1666V27.5019L53.1072 28.4183V56.472Z" fill="#072826"/>
     </svg>
 </div>
+
+<style>
+    .preloader {
+        z-index: 100000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        pointer-events: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+        background-image: url(assets/images/mramor.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 0;
+        opacity: 1;
+        cursor: none;
+    }
+
+    .preloader__image {
+        animation: pulse 2s ease-in-out both;
+        height: 100px;
+        width: 100px;
+    }
+
+    @media screen and (max-width: 575px) {
+        .preloader__image {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .loaded_hiding .preloader {
+        visibility: hidden;
+        transition: 1s visibility;
+    }
+
+    .loaded .preloader{
+        display: none;
+    }
+
+    @-webkit-keyframes pulse {
+        from {
+            -webkit-transform: scale3d(1.2, 1.2, 1.2);
+            transform: scale3d(1.2, 1.2, 1.2);
+        }
+
+        50% {
+            -webkit-transform: scale3d(1.45, 1.45, 1.45);
+            transform: scale3d(1.45, 1.45, 1.45);
+        }
+
+        to {
+            -webkit-transform: scale3d(1.2, 1.2, 1.2);
+            transform: scale3d(1.2, 1.2, 1.2);
+        }
+    }
+    @keyframes pulse {
+        from {
+            -webkit-transform: scale3d(1.2, 1.2, 1.2);
+            transform: scale3d(1.2, 1.2, 1.2);
+        }
+
+        50% {
+            -webkit-transform: scale3d(1.45, 1.45, 1.45);
+            transform: scale3d(1.45, 1.45, 1.45);
+        }
+
+        to {
+            -webkit-transform: scale3d(1.2, 1.2, 1.2);
+            transform: scale3d(1.2, 1.2, 1.2);
+        }
+    }
+
+</style>

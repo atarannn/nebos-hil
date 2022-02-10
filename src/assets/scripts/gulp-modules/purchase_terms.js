@@ -9,8 +9,8 @@ function init() {
         spaceBetween: 250,
         autoplay: {
             delay: 0,
-            disableOnInteraction: true,
-            waitForTransition: true,
+            disableOnInteraction: false,
+            waitForTransition: false,
         },
         watchSlidesVisibility: true,
 

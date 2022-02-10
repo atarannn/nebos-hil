@@ -6,22 +6,22 @@ block variable
     var class_page = 'home'
 
     var slider = [{
-      img: 'main/main-slider-1.png',
+      img: 'main/main-slider-1.jpg',
       title: 'Унікальний проект у «тихому центрі» Дніпра',
       url: '',
       linkText: 'дізнатись про проект',
     },{
-      img: 'main/main-slider-2.png',
+      img: 'main/main-slider-2.jpg',
       title: 'жк neboshill має понад 20 варіантів планувань квартир',
       url: '',
       linkText: 'Обрати квартиру',
     },{
-      img: 'main/main-slider-3.png',
+      img: 'main/main-slider-3.jpg',
       title: 'vr-тур ознайомить вас з територією будинку',
       url: '',
       linkText: 'перейти до Vr-туру',
     },{
-        img: 'main/main-slider-4.png',
+        img: 'main/main-slider-4.jpg',
         title: 'допоможемо вам с вибором вашого житла',
         url: '',
         linkText: 'дізнатись контакти',
@@ -59,9 +59,8 @@ block content
                                       +svg('arrow-green')
 
                           .slide__content__right
-                            .slide__content__right-img
-                                .gradient-img
-                                +img(sl.img)
+                            .gradient-img
+                            +img(sl.img)
               .animation-for-slider
 
 

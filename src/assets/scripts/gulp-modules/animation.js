@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
         wrap.style.overflow = 'hidden';
         wrap.style.height = '100%';
         image.parentElement.prepend(wrap);
-        gsap.set(image, { willChange: 'transform', scale: 1.1 });
+        gsap.set(image, { scale: 1.1 });
         wrap.prepend(image);
 
         gsap
@@ -58,9 +58,10 @@ window.addEventListener('load', () => {
         if(document.documentElement.clientWidth > 575) {
             let tl = gsap
                 .timeline({
-                    paused: true,
+                    // paused: true,
                     scrollTrigger: {
                         trigger: image,
+                        once: true,
                         scroller: '.page__inner',
                     }
                 })
@@ -68,9 +69,12 @@ window.addEventListener('load', () => {
                     image,
                     {
                         y: 300,
+                        autoAlpha: 0
+
                     },
                     {
                         y: 0,
+                        autoAlpha: 1,
                         delay: 0.1,
                         duration: 3,
                         ease: "power4.out",
@@ -82,7 +86,7 @@ window.addEventListener('load', () => {
         if(document.documentElement.clientWidth < 575) {
             let tl = gsap
                 .timeline({
-                    paused: true,
+                    // paused: true,
                     scrollTrigger: {
                         trigger: image,
                         scroller: '.page__inner',
@@ -92,12 +96,14 @@ window.addEventListener('load', () => {
                     image,
                     {
                         y: 200,
+                        autoAlpha: 0
                     },
                     {
                         y: 0,
+                        autoAlpha: 1
                     }
                 );
-            return tl;
+            // return tl;
         }
     });
 
@@ -106,9 +112,10 @@ window.addEventListener('load', () => {
         if (document.documentElement.clientWidth > 575) {
             let tl = gsap
                 .timeline({
-                    paused: true,
+                    // paused: true,
                     scrollTrigger: {
                         trigger: block,
+                        once: true,
                         scroller: '.page__inner',
                     }
                 })
@@ -116,14 +123,16 @@ window.addEventListener('load', () => {
                     block,
                     {
                         y: 300,
+                        autoAlpha: 0
                     },
                     {
                         y: 0,
+                        autoAlpha: 1,
                         duration: 3.25,
                         ease: "power4.out",
                     }
                 );
-            return tl;
+            // return tl;
         }
 
         if(document.documentElement.clientWidth < 575) {
@@ -132,6 +141,7 @@ window.addEventListener('load', () => {
                     paused: true,
                     scrollTrigger: {
                         trigger: block,
+                        once: true,
                         scroller: '.page__inner',
                     }
                 })
@@ -139,9 +149,11 @@ window.addEventListener('load', () => {
                     block,
                     {
                         y: 100,
+                        autoAlpha: 0
                     },
                     {
                         y: 0,
+                        autoAlpha: 1
                     }
                 );
             return tl;

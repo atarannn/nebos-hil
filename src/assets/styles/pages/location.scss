@@ -65,6 +65,13 @@
       position: absolute;
       bottom: 0;
       left: 0;
+      &.closed {
+        pointer-events: none;
+      }
+      &.closed>* {
+        pointer-events: all;
+      }
+
       @include open-thin-text(18px, $main-bcg, center, 160%);
       text-transform: uppercase;
       overflow: hidden;
@@ -263,7 +270,7 @@
 
     @include to(575px) {
       &:nth-child(4n+1) {
-        transform: translateY(50%);
+        transform: translateY(20%);
         width: 285px;
       }
       &:nth-child(4n+2) {
@@ -271,7 +278,7 @@
         transform: none;
       }
       &:nth-child(4n+3) {
-        transform: translateY(83%);
+        transform: translateY(20%);
         width: 285px;
       }
       &:nth-child(4n+4) {
@@ -286,6 +293,7 @@
   background: $dgrc;
   padding-top: var(--blocks-top-shift);
   padding-bottom: var(--blocks-top-shift);
+  overflow: hidden;
 }
 
 .infrastructure__title{
@@ -320,6 +328,19 @@
 .location-card{
   @include size(2);
   position: relative;
+
+  img {
+    height: 640px;
+    @include to(1600px) {
+      height: 460px;
+    }
+    @include to(1024px) {
+      height: 300px;
+    }
+    @include to(575px) {
+      height: 380px;
+    }
+  }
 
   @include to(1600px) {
     @include size-llg(2);

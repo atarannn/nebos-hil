@@ -1,4 +1,9 @@
 .home {
+
+  .swiper-wrapper {
+    height: 100vh;
+  }
+
   .gallery-slider__wrap {
     position: relative;
 
@@ -24,13 +29,11 @@
 
     &-0 {
       position: relative;
-      background-image: url(../images/main/main.png);
+      background-image: url(../images/main/main.jpg);
       background-size: cover;
 
       @include d-flex;
       justify-content: flex-end;
-
-      max-height: 100vh;
       width: 100%;
       overflow: hidden;
     }
@@ -38,7 +41,7 @@
 
   &-slider {
     display: inline-block;
-    max-height: 100vh;
+    //height: 100vh;
     width: 100%;
 
     &__arrows {
@@ -46,8 +49,9 @@
       bottom: var(--main-bottom);
       right: calc(50% + 100px);
       z-index: 20;
-
-      @include d-flex;
+      height: 10px;
+      @include d-flex(flex-start);
+      -webkit-align-items: flex-start;
 
       @include to(1024px) {
         right: 43%;
@@ -59,6 +63,9 @@
     }
 
     &__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       svg {
         @include hover-arrow;
         @include d-flex;
@@ -130,14 +137,12 @@
   height: 100vh;
   width: 100%;
 
-  &__content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    overflow: hidden;
+  @include to(575px) {
+    height: 100%;
+    min-height: -webkit-fill-available;
+  }
 
+  &__content {
     height: 100%;
     width: 100%;
 

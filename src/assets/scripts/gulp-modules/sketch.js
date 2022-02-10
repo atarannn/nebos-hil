@@ -52,7 +52,6 @@ class Sketch {
 
         this.paused = true;
         this.initiate(()=>{
-            console.log(this.textures);
             this.setupResize();
             this.settings();
             this.addObjects();
@@ -60,9 +59,6 @@ class Sketch {
             this.clickEvent();
             this.play();
         })
-
-
-
     }
 
     initiate(cb){
@@ -190,7 +186,6 @@ class Sketch {
         let len = this.textures.length;
         // let nextTexture =this.textures[(this.current +1)%len];
         let nextTexture = this.current === 0 ? this.textures[len]: this.textures[this.current - 1];
-        console.log(this.current)
         // return;
         this.material.uniforms.texture2.value = nextTexture;
         let tl = new gsap.timeline();
@@ -215,7 +210,6 @@ class Sketch {
             value:1,
             ease: this.easing,
             onComplete:()=>{
-                console.log('FINISH');
                 this.current = (this.current +1)%len;
                 this.material.uniforms.texture1.value = nextTexture;
                 this.material.uniforms.progress.value = 0;

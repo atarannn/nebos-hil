@@ -1,10 +1,10 @@
 window.onload = function () {
   document.body.classList.add('loaded_hiding');
-  document.querySelector('body').style.overflow = 'hidden';
+  // document.querySelector('body').style.overflow = 'hidden';
   window.setTimeout(() => {
     document.body.classList.add('loaded');
     document.body.classList.remove('loaded_hiding');
-    document.querySelector('body').style.overflow = 'auto';
+    // document.querySelector('body').style.overflow = 'auto';
   }, 500);
 };
 
@@ -13,7 +13,7 @@ function menuOpen(menu) {
   const createAnimation = (links, translateY = 0, delay = 0) => {
     links.forEach((link, i) => {
       gsap.from(link, {
-        delay: delay + i / 10,
+        delay: delay + i / 5,
         y: translateY,
         opacity: 0,
       });
@@ -33,19 +33,19 @@ function menuOpen(menu) {
   const links8 = menu.querySelectorAll('[data-animation7]');
   const links9 = menu.querySelectorAll('[data-animation8]');
 
-  createAnimation(links1, 100, 0.5);
+  createAnimation(links1, 100, 0.3);
 
-  createAnimation(links2, 100, 0.7);
-  createAnimation(links3, 100, 0.7);
+  createAnimation(links2, 100, 0.5);
+  createAnimation(links3, 100, 0.5);
 
-  createAnimation(links4, 100, 0.9);
-  createAnimation(links5, 100, 0.9);
+  createAnimation(links4, 100, 0.7);
+  createAnimation(links5, 100, 0.7);
 
-  createAnimation(links6, 100, 1.1);
-  createAnimation(links7, 100, 1.1);
+  createAnimation(links6, 100, 0.9);
+  createAnimation(links7, 100, 0.9);
 
-  createAnimation(links8, 100, 1.3);
-  createAnimation(links9, 100, 1.3);
+  createAnimation(links8, 100, 1.1);
+  createAnimation(links9, 100, 1.1);
 
   menuOpenAnim();
   document.querySelector('body').style.overflow = 'hidden';
@@ -64,7 +64,7 @@ function menuOpenAnim(evt, reverseArg) {
   tl.to(menu, { autoAlpha: 1 })
   tl.fromTo(menu,
       {webkitClipPath: 'circle(0% at 93% 6%)' },
-      { webkitClipPath: 'circle(150% at 50% 100%)', ease: 'power4.easeInOut', duration: 1.2, clearProps: 'all' }, '<');
+      { webkitClipPath: 'circle(150% at 50% 100%)', ease: 'power4.easeInOut', duration: 0.8, clearProps: 'all' }, '<');
   tl.play();
 }
 

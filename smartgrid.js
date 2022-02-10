@@ -13,7 +13,8 @@ var settings = {
     },
     breakPoints: {
         llg: {
-          width: '1600px',
+          w
+            idth: '1600px',
           offset: '40px',
             fields: '70px',
         },

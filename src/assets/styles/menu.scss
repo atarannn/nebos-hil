@@ -172,6 +172,7 @@
 
   .call-btn {
     @include btn-style;
+    transform: translateZ(0);
     @include hover-background($hc);
 
     @include to(1024px) {
@@ -381,11 +382,11 @@
       }
     }
 
-    @include from(1024px) {
-      &:hover {
-        .menu__close-icon {
-          @include hover-animation-circle;
+    &:hover {
+      .menu__close-icon {
+        @include hover-animation-circle;
 
+        @include from(1024px) {
           & span {
             background: $wc;
           }

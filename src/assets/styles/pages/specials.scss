@@ -161,6 +161,11 @@
 
 
 .specials-slider__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+
   position: relative;
   height: 540px;
 
@@ -174,6 +179,12 @@
 
   @include to(575px) {
     height: 600px;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: start;
+    justify-content: start;
   }
 
 
@@ -195,6 +206,7 @@
 
       @include to(575px) {
         flex-direction: column-reverse;
+        align-items: flex-start;
       }
     }
   }
@@ -407,7 +419,7 @@
 .swiper-cont {
   .slide__content {
     @include to(575px) {
-      justify-content: start;
+      justify-content: flex-end;
     }
 
     .page-blocks__text {

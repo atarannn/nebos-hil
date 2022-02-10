@@ -203,6 +203,7 @@ $screen-height: 720;
 		right: 0;
 		bottom: 0;
 		transition: transform .3s ease-in-out;
+		-webkit-animation: transform .3s ease-in-out;
 	}
 
 	@include from(1024px) {
@@ -218,24 +219,28 @@ $screen-height: 720;
 @mixin animation-circle($background: $dgrc) {
 	position: relative;
 
-	&:before {
-		background: $background;
-		border-radius: 200px;
-		content: "";
-		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		transform: scale(0);
-		transition: transform .3s ease-in-out;
+	@include from(1024px) {
+		&:before {
+			background: $background;
+			border-radius: 200px;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			transform: scale(0);
+			transition: transform .3s ease-in-out;
+		}
 	}
 }
 
 @mixin hover-animation-circle {
-	&:before {
-		transform: scale(1.05);
-		transition: transform .3s ease-in-out;
+	@include from(1024px) {
+		&:before {
+			transform: scale(1.05);
+			transition: transform .3s ease-in-out;
+		}
 	}
 }
 

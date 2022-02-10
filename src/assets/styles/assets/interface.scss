@@ -1,13 +1,20 @@
 .row {
   @include row-flex();
 }
+
+.page-3d .page__inner {
+  &:before {
+    content: none;
+  }
+}
+
 .page__inner {
   background-color: $main-bcg;
   position: relative;
   display: flex;
   flex-direction: column;
   z-index: 2;
-  min-height: 100vh;
+  //min-height: 100vh;
   overflow: hidden;
 
   @include from(575px) {
@@ -263,14 +270,14 @@
 
     @include to(575px) {
       &:nth-child(3n+3){
-        transform: translateY(90%);
+        transform: translateY(10%);
         width: 285px;
       }
       &:nth-child(3n+2){
         width: 285px;
       }
       &:nth-child(3n+1) {
-        transform: translateY(50%);
+        transform: translateY(30%);
         width: 285px;
       }
     }

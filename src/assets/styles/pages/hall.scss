@@ -37,6 +37,19 @@
   .hall-images {
     @include size(2);
 
+    img {
+      height: 640px;
+      @include to(1600px) {
+        height: 460px;
+      }
+      @include to(1024px) {
+        height: 300px;
+      }
+      @include to(575px) {
+        height: 380px;
+      }
+    }
+
     @include to(1600px) {
       @include size-llg(2);
     }

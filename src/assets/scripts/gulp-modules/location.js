@@ -190,6 +190,7 @@ function initMap() {
 }
 
 window.addEventListener("load", () => {
+
     const legend = document.querySelector("[data-mob-accordeon]");
     const legendTitle = document.querySelector(".location-markers__btn");
     const openedMarker = document.querySelector('.location-markers__btn svg');
@@ -207,12 +208,15 @@ window.addEventListener("load", () => {
     }
 
     legendTitle.addEventListener("click", () => {
+        const legendWrapper = document.querySelector('.location-markers__wrapper');
         legend.classList.toggle('opened');
         openedMarker.classList.toggle('rotate');
         if (legend.classList.contains("opened")) {
+            legendWrapper.classList.remove('closed');
             gsap.timeline().fromTo(legend, { y: markersHeight }, { y: 0 });
             gsap.timeline().fromTo(legendTitle, {y: markersHeight}, {y: 0});
         } else {
+            legendWrapper.classList.add('closed')
             gsap.timeline().fromTo(legend, { y: 0 }, { y: markersHeight });
             gsap.timeline().fromTo(legendTitle, {y: 0}, {y: markersHeight});
         }

@@ -1,5 +1,10 @@
 function init() {
-
+    $(function () {
+        if (navigator.userAgent.indexOf('Safari') != -1 &&
+            navigator.userAgent.indexOf('Chrome') == -1) {
+            $("body").addClass("safari");
+        }
+    });
 
   const slider = new Swiper('.swiper-container', {
     loop: true,
@@ -35,7 +40,6 @@ function init() {
 
 const msGlSlider = mainScreenGlSlider();
     slider.on('slideNextTransitionStart', (obj) => {
-        console.log(obj, 'next trans start')
        msGlSlider.nextExtern()
     })
     slider.on('slidePrevTransitionStart', () => {
@@ -49,12 +53,10 @@ const msGlSlider = mainScreenGlSlider();
     slider.on('transitionStart', (obj) => {
         obj.navigation.nextEl.style.pointerEvents = 'none';
         obj.navigation.prevEl.style.pointerEvents = 'none';
-        console.log('TRANSITION START');
     })
     slider.on('transitionEnd', (obj) => {
         obj.navigation.nextEl.style.pointerEvents = '';
         obj.navigation.prevEl.style.pointerEvents = '';
-        console.log(obj, 'TRANSITION END');
     })
   slider.on('activeIndexChange', (obj) => {
 
@@ -178,7 +180,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function mainScreenGlSlider() {
 
-    const imagesForGl = Array.from(document.querySelectorAll('.home-slider .swiper-slide:not(.swiper-slide-duplicate) .slide__content__right-img img')).map(img => img.src);
+    const imagesForGl = Array.from(document.querySelectorAll('.home-slider .swiper-slide:not(.swiper-slide-duplicate) .slide__content__right img')).map(img => img.src);
 
     let sketch = new Sketch({
         debug: true,

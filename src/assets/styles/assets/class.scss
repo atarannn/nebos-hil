@@ -588,6 +588,7 @@ picture img {
 .button-style {
   height: 65px;
   width: 260px;
+  transform: translateZ(0);
 
   @include to(1600px) {
     width: 200px;

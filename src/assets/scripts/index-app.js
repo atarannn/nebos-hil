@@ -155,6 +155,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 window.addEventListener('load', () => {
   // disableScroll();
-  console.log('i load');
   window.locoScroll.update();
 });
