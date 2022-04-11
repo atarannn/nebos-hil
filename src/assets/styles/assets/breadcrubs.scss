@@ -12,8 +12,18 @@
 
     .breadcrumbs-item {
       margin-bottom: 20px;
+      @include open-thin-text(14px, $dgrc);
+      text-transform: lowercase;
 
-      & a{
+      @include to(1600px) {
+        font-size: 11px;
+      }
+
+      @include to(575px) {
+        font-size: 10px;
+      }
+
+      a {
         @include open-thin-text(14px, $dgrc);
         text-transform: lowercase;
 
