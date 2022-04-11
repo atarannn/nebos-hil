@@ -73,16 +73,17 @@
   }
 
   &:hover {
-    height: 150px;
-    margin-top: 85px;
+    height: 110px;
+    margin-top: 55px;
 
     @include to(1600px) {
-      height: 120px;
-      margin-top: 70px;
+      height: 90px;
+      margin-top: 40px;
     }
 
     @include to(575px) {
-      height: 110px;
+      height: 75px;
+      margin-top: 35px;
     }
   }
 }
