@@ -91,6 +91,10 @@
       .location-markers__ul {
         height: 100%;
 
+        span {
+          transition: color 0.2s ease-in-out;
+        }
+
         li {
           display: flex;
           align-items: center;
@@ -123,10 +127,17 @@
             border-top: 1px solid  rgba(255, 255, 255, 0.25);;
           }
 
-          img {
+          svg {
             height: 50px;
             width: 50px;
             margin-right: 20px;
+
+            circle {
+              transition: fill 0.2s ease-in-out;
+            }
+            path {
+              transition: fill 0.2s ease-in-out;
+            }
 
             @include to(1600px) {
               height: 40px;
@@ -403,5 +414,23 @@
   @include to(1024px) {
     font-size: 12px;
     padding-top: 10px;
+  }
+}
+
+.location-markers__ul .active {
+  span {
+    color: $dgrc;
+    transition: color 0.2s ease-in-out;
+  }
+
+  svg {
+    circle {
+      fill: $dgrc;
+      transition: fill 0.2s ease-in-out;
+    }
+    path {
+      fill: $wc;
+      transition: fill 0.2s ease-in-out;
+    }
   }
 }

@@ -9,11 +9,15 @@
 
   @include to(1600px) {
     grid-template-columns: var(--margin) 35% auto var(--margin);
-    grid-template-rows: auto 80px 1fr;
+    grid-template-rows: auto 60px 1fr;
+  }
+
+  @include to(1440px) {
+    grid-template-rows: auto 50px 1fr;
   }
 
   @include to(1024px) {
-    grid-template-rows: auto 60px 1fr;
+    grid-template-rows: auto 40px 1fr;
   }
 
   @include to(820px) {
