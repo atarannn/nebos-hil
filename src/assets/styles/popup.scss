@@ -8,6 +8,8 @@
 
   @include to(1024px) {
     flex-direction: column;
+    height: 100%;
+    //min-height: -webkit-fill-available;
   }
 }
 

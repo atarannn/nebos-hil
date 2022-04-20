@@ -288,6 +288,7 @@ $slider-width: 250px;
       margin-top: 30px;
       padding-left: var(--margin);
       padding-right: var(--margin);
+      padding-bottom: var(--margin);
     }
 
     &-date {
@@ -341,7 +342,7 @@ $slider-width: 250px;
   &__video {
     width: 60%;
     height: 100vh;
-    background-image: url(../images/main/main.png);
+    //background-image: url(../images/mramor.jpg);
     background-size: cover;
     border-left: 1px solid rgba(134, 137, 126, 0.25);
 
@@ -379,7 +380,7 @@ $slider-width: 250px;
 
   @include to(1024px)  {
     flex-direction: row;
-    height: 100%;
+    height: 100vh;
   }
 }
 

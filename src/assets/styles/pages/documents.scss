@@ -114,8 +114,11 @@
     .doc {
       @include open-thin-text(16px, $gc-text, left, 160%);
       text-transform: uppercase;
-      width: 80%;
+      width: 100%;
       transition: color 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       @include to(1600px) {
         font-size: 13px;
@@ -129,6 +132,7 @@
     .btn-circle {
       width: 65px;
       height: 65px;
+      margin-left: 20px;
 
       @include to(1600px) {
         width: 50px;
@@ -138,6 +142,7 @@
       @include to(1024px) {
         width: 40px;
         height: 40px;
+        margin-left: 15px;
       }
 
       .circle-back{

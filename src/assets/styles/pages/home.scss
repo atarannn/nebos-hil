@@ -1,5 +1,4 @@
 .home {
-
   .swiper-wrapper {
     height: 100vh;
   }
@@ -29,8 +28,9 @@
 
     &-0 {
       position: relative;
-      background-image: url(../images/main/main.jpg);
+      //background-image: url(../images/mramor.jpg);
       background-size: cover;
+      background-position: right;
 
       @include d-flex;
       justify-content: flex-end;
